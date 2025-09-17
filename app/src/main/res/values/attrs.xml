@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorPrimary" format="color|reference" />
+    <attr name="colorPrimaryContainer" format="color|reference" />
+    <attr name="colorPrimaryDark" format="color|reference" />
+    <attr name="colorNeutralLowest" format="color|reference" />
+    <attr name="colorNeutralLow" format="color|reference" />
+    <attr name="colorNeutral" format="color|reference" />
+    <attr name="colorNeutralHigh" format="color|reference" />
+    <attr name="colorNeutralHighest" format="color|reference" />
+    <attr name="colorSurface" format="color|reference" />
+    <attr name="colorSurfaceHigh" format="color|reference" />
+    <attr name="colorSurfaceHighVariant" format="color|reference" />
+    <attr name="colorSurfaceHighest" format="color|reference" />
+    <attr name="colorSurfaceHighestVariant" format="color|reference" />
+    <attr name="scrimColor" format="color|reference" />
+    <attr name="colorSuccess" format="color|reference" />
+    <attr name="colorSuccessContainer" format="color|reference" />
+    <attr name="colorInfo" format="color|reference" />
+    <attr name="colorInfoContainer" format="color|reference" />
+    <attr name="colorWarning" format="color|reference" />
+    <attr name="colorWarningContainer" format="color|reference" />
+    <attr name="colorError" format="color|reference" />
+    <attr name="colorErrorContainer" format="color|reference" />
+</resources>
