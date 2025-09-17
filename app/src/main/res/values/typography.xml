@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heading text appearance styles -->
+    <style name="TextAppearance.Heading.Base" parent="">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading1" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">48sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading2" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading3" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading4" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading5" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading6" parent="TextAppearance.Heading.Base">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Body text appearance styles -->
+    <style name="TextAppearance.Body.Base" parent="" />
+
+    <style name="TextAppearance.Body.XLarge.Base" parent="TextAppearance.Body.Base">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.XLarge" parent="TextAppearance.Body.XLarge.Base">
+        <item name="fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body.XLarge.Medium" parent="TextAppearance.Body.XLarge.Base">
+        <item name="fontFamily">@font/gilroy_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body.XLarge.Semibold" parent="TextAppearance.Body.XLarge.Base">
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Body.XLarge.Bold" parent="TextAppearance.Body.XLarge.Base">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Large.Base" parent="TextAppearance.Body.Base">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.Large" parent="TextAppearance.Body.Large.Base">
+        <item name="fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body.Large.Medium" parent="TextAppearance.Body.Large.Base">
+        <item name="fontFamily">@font/gilroy_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body.Large.Semibold" parent="TextAppearance.Body.Large.Base">
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Large.Bold" parent="TextAppearance.Body.Large.Base">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium.Base" parent="TextAppearance.Body.Base">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium" parent="TextAppearance.Body.Medium.Base">
+        <item name="fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium.Medium" parent="TextAppearance.Body.Medium.Base">
+        <item name="fontFamily">@font/gilroy_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium.Semibold" parent="TextAppearance.Body.Medium.Base">
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium.Bold" parent="TextAppearance.Body.Medium.Base">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small.Base" parent="TextAppearance.Body.Base">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small" parent="TextAppearance.Body.Small.Base">
+        <item name="fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small.Medium" parent="TextAppearance.Body.Small.Base">
+        <item name="fontFamily">@font/gilroy_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small.Semibold" parent="TextAppearance.Body.Small.Base">
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small.Bold" parent="TextAppearance.Body.Small.Base">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="TextAppearance.Body.XSmall.Base" parent="TextAppearance.Body.Base">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.XSmall" parent="TextAppearance.Body.XSmall.Base">
+        <item name="fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body.XSmall.Medium" parent="TextAppearance.Body.XSmall.Base">
+        <item name="fontFamily">@font/gilroy_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body.XSmall.Semibold" parent="TextAppearance.Body.XSmall.Base">
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Body.XSmall.Bold" parent="TextAppearance.Body.XSmall.Base">
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+</resources>
