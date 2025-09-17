@@ -22,8 +22,8 @@
     <color name="neutral_700">#616161</color>
     <color name="neutral_800">#424242</color>
     <color name="neutral_900">#212121</color>
-    <color name="gray_700">#35383f</color>
-    <color name="gray_800">#1f222a</color>
-    <color name="gray_900">#181a20</color>
+    <color name="dark_700">#35383f</color>
+    <color name="dark_800">#1f222a</color>
+    <color name="dark_900">#181a20</color>
     <color name="black_scrim">#66000000</color>
 </resources>

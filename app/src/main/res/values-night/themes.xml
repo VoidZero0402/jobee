@@ -1,4 +1,15 @@
 <resources>
     <!-- Dark application theme -->
-    <style name="Theme.Jobee" parent="Base.Theme.Jobee" />
+    <style name="Theme.Jobee" parent="Base.Theme.Jobee">
+        <item name="colorPrimaryContainer">@color/dark_700</item>
+        <item name="colorNeutralLowest">@color/neutral_600</item>
+        <item name="colorNeutral">@color/neutral_300</item>
+        <item name="colorNeutralHigh">@color/neutral_200</item>
+        <item name="colorNeutralHighest">@color/white</item>
+        <item name="colorSurface">@color/dark_900</item>
+        <item name="colorSurfaceHigh">@color/dark_800</item>
+        <item name="colorSurfaceHighVariant">@color/dark_800</item>
+        <item name="colorSurfaceHighest">@color/dark_700</item>
+        <item name="colorSurfaceHighestVariant">@color/dark_700</item>
+    </style>
 </resources>
