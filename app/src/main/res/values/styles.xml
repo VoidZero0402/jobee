@@ -3,6 +3,7 @@
     <!-- Button widget styles -->
     <style name="Widget.Button.Base" parent="">
         <item name="android:layout_height">58dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingTop">18dp</item>
@@ -62,5 +63,39 @@
 
     <style name="Widget.Button.IconButton.Secondary.Rounded" parent="Widget.Button.IconButton.Secondary.Base">
         <item name="android:background">@drawable/ripple_icon_button_rounded</item>
+    </style>
+
+    <!-- Tag widget styles -->
+    <style name="Widget.Tag.Base" parent="">
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body.XSmall.Medium</item>
+    </style>
+
+    <style name="Widget.Tag.Primary" parent="Widget.Tag.Base">
+        <item name="android:background">@drawable/shape_tag_primary</item>
+        <item name="android:textColor">?attr/colorNeutralHigh</item>
+    </style>
+
+    <style name="Widget.Tag.Success" parent="Widget.Tag.Base">
+        <item name="android:background">@drawable/shape_tag_success</item>
+        <item name="android:textColor">?attr/colorSuccess</item>
+    </style>
+
+    <style name="Widget.Tag.Info" parent="Widget.Tag.Base">
+        <item name="android:background">@drawable/shape_tag_info</item>
+        <item name="android:textColor">?attr/colorInfo</item>
+    </style>
+
+    <style name="Widget.Tag.Warning" parent="Widget.Tag.Base">
+        <item name="android:background">@drawable/shape_tag_warning</item>
+        <item name="android:textColor">?attr/colorWarning</item>
+    </style>
+
+    <style name="Widget.Tag.Error" parent="Widget.Tag.Base">
+        <item name="android:background">@drawable/shape_tag_error</item>
+        <item name="android:textColor">?attr/colorError</item>
     </style>
 </resources>
