@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button widget styles -->
+    <style name="Widget.Button.Secondary.Base" parent="Widget.Button.Base">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
