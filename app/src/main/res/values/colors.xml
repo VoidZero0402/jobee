@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="blue_100">#dbeafe</color>
+    <color name="blue_100">#eff6ff</color>
     <color name="blue_500">#3b82f6</color>
     <color name="blue_600">#2563eb</color>
     <color name="yellow_500">#eab308</color>
@@ -12,6 +12,8 @@
     <color name="yellow_transparent">#14EAB308</color>
     <color name="red_transparent">#14F75555</color>
     <color name="emerald_transparent">#1407BD74</color>
+    <color name="light_transparent">#1AFAFAFA</color>
+    <color name="dark_transparent">#1A0A0A0A</color>
     <color name="neutral_50">#fafafa</color>
     <color name="neutral_100">#f5f5f5</color>
     <color name="neutral_200">#eeeeee</color>

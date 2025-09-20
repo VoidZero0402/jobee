@@ -14,12 +14,14 @@
         <item name="colorErrorContainer">@color/red_transparent</item>
         <item name="scrimColor">@color/black_scrim</item>
         <item name="textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:windowBackground">?attr/colorSurface</item>
     </style>
 
     <!-- Light application theme -->
     <style name="Theme.Jobee" parent="Base.Theme.Jobee">
         <item name="colorPrimaryContainer">@color/blue_100</item>
+        <item name="rippleColor">@color/dark_transparent</item>
         <item name="colorNeutralLowest">@color/neutral_400</item>
         <item name="colorNeutral">@color/neutral_700</item>
         <item name="colorNeutralHigh">@color/neutral_800</item>
