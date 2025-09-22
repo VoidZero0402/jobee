@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="animationDuration" format="integer" />
     <declare-styleable name="TextField">
         <attr name="inputType" format="enum">
             <enum name="text" value="0" />
@@ -17,6 +18,11 @@
             <enum name="custom" value="3" />
         </attr>
         <attr name="actionIcon" format="reference" />
-        <attr name="animationDuration" format="integer" />
+        <attr name="animationDuration" />
+    </declare-styleable>
+    <declare-styleable name="Chip">
+        <attr name="checked" format="boolean" />
+        <attr name="checkable" format="boolean" />
+        <attr name="animationDuration" />
     </declare-styleable>
 </resources>

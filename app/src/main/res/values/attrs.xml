@@ -25,4 +25,5 @@
     <attr name="colorErrorContainer" format="color|reference" />
 
     <attr name="textFieldContainer" format="reference" />
+    <attr name="chipStyle" format="reference" />
 </resources>

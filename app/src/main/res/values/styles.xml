@@ -132,4 +132,16 @@
         <item name="action">custom</item>
         <item name="actionIcon">@drawable/ic_tuning</item>
     </style>
+
+    <!-- Chip widget styles -->
+    <style name="Widget.Chip.Base" parent="">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="Widget.Chip.Primary" parent="Widget.Chip.Base">
+        <item name="android:textAppearance">@style/TextAppearance.Body.Large.Medium</item>
+    </style>
 </resources>
