@@ -33,5 +33,6 @@
         </attr>
         <attr name="horizontalGap" format="dimension" />
         <attr name="verticalGap" format="dimension" />
+        <attr name="singleSelection" format="boolean" />
     </declare-styleable>
 </resources>
