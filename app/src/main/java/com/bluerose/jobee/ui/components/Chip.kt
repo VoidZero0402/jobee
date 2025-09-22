@@ -11,6 +11,7 @@ import android.widget.Checkable
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.withStyledAttributes
 import com.bluerose.jobee.R
+import com.bluerose.jobee.ui.utils.AnimationDuration
 import com.bluerose.jobee.ui.utils.Dimensions.dp
 import com.bluerose.jobee.ui.utils.getThemeColor
 
@@ -21,7 +22,7 @@ class Chip @JvmOverloads constructor(
 ) : AppCompatTextView(context, attrs, defStyleAttr), Checkable {
     private var isCheckedState = false
     private var isCheckable = true
-    private var animationDuration = 300L
+    private var animationDuration = 0L
 
     private var onCheckedChanged: ((checked: Boolean) -> Unit)? = null
 
@@ -40,7 +41,10 @@ class Chip @JvmOverloads constructor(
         context.withStyledAttributes(attrs, R.styleable.Chip, defStyleAttr, 0) {
             isCheckedState = getBoolean(R.styleable.Chip_checked, false)
             isCheckable = getBoolean(R.styleable.Chip_checkable, true)
-            animationDuration = getInt(R.styleable.TextField_animationDuration, 300).toLong()
+            animationDuration = getInt(
+                R.styleable.TextField_animationDuration,
+                AnimationDuration.SHORT.duration
+            ).toLong()
         }
         setupView()
         setupListeners()
