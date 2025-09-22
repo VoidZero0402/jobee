@@ -1,7 +1,7 @@
 <resources>
     <!-- Dark application theme -->
     <style name="Theme.Jobee" parent="Base.Theme.Jobee">
-        <item name="colorPrimaryContainer">@color/dark_700</item>
+        <item name="colorPrimaryContainer">@color/dark_800</item>
         <item name="rippleColor">@color/light_transparent</item>
         <item name="colorNeutralLowest">@color/neutral_600</item>
         <item name="colorNeutral">@color/neutral_300</item>

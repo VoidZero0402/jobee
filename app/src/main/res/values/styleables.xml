@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextField">
+        <attr name="inputType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="password" value="1" />
+            <enum name="phone" value="2" />
+            <enum name="email" value="3" />
+        </attr>
+        <attr name="hint" format="string" />
+        <attr name="text" format="string" />
+        <attr name="icon" format="reference" />
+        <attr name="action" format="enum">
+            <enum name="none" value="0" />
+            <enum name="password" value="1" />
+            <enum name="clear" value="2" />
+            <enum name="custom" value="3" />
+        </attr>
+        <attr name="actionIcon" format="reference" />
+        <attr name="animationDuration" format="integer" />
+    </declare-styleable>
+</resources>

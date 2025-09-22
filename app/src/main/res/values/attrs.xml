@@ -23,4 +23,6 @@
     <attr name="colorWarningContainer" format="color|reference" />
     <attr name="colorError" format="color|reference" />
     <attr name="colorErrorContainer" format="color|reference" />
+
+    <attr name="textFieldContainer" format="reference" />
 </resources>
