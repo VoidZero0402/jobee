@@ -7,18 +7,18 @@ object Dimensions {
     private val systemMetrics = Resources.getSystem().displayMetrics
     private val systemConfig = Resources.getSystem().configuration
 
-    val Int.dp: Float
-        get() = this * systemMetrics.density
+    val Int.dp: Int
+        get() = (this * systemMetrics.density).toInt()
 
-    fun Int.dp(context: Context): Float = this * context.resources.displayMetrics.density
+    fun Int.dp(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
 
-    val Int.sp: Float
-        get() = this * systemMetrics.density * systemConfig.fontScale
+    val Int.sp: Int
+        get() = (this * systemMetrics.density * systemConfig.fontScale).toInt()
 
-    fun Int.sp(context: Context): Float {
+    fun Int.sp(context: Context): Int {
         val metrics = context.resources.displayMetrics
         val fontScale = context.resources.configuration.fontScale
-        return this * metrics.density * fontScale
+        return (this * metrics.density * fontScale).toInt()
     }
 
     val Float.dp: Float

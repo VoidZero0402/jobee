@@ -25,4 +25,13 @@
         <attr name="checkable" format="boolean" />
         <attr name="animationDuration" />
     </declare-styleable>
+    <declare-styleable name="ChipGroup">
+        <attr name="wrapMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="chain" value="1" />
+            <enum name="aligned" value="2" />
+        </attr>
+        <attr name="horizontalGap" format="dimension" />
+        <attr name="verticalGap" format="dimension" />
+    </declare-styleable>
 </resources>

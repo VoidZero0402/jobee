@@ -49,9 +49,9 @@ class Chip @JvmOverloads constructor(
     private fun setupView() {
         backgroundDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            cornerRadius = 100.dp
+            cornerRadius = 100f.dp
             setColor(if (isCheckedState) colorPrimary else Color.TRANSPARENT)
-            setStroke(2.dp.toInt(), colorPrimary)
+            setStroke(2.dp, colorPrimary)
         }
         background = backgroundDrawable
         setTextColor(if (isCheckedState) colorWhite else colorPrimary)

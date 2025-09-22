@@ -43,11 +43,11 @@ class TextField @JvmOverloads constructor(
     private val colorSurfaceHigh = context.getThemeColor(R.attr.colorSurfaceHigh)
     private val colorNeutralLow = context.getThemeColor(R.attr.colorNeutralLow)
     private val colorNeutralHighest = context.getThemeColor(R.attr.colorNeutralHighest)
-    private val strokeWidth = 1.dp.toInt()
+    private val strokeWidth = 1.dp
     private val backgroundDrawable = GradientDrawable().apply {
         shape = GradientDrawable.RECTANGLE
         setColor(colorSurfaceHigh)
-        cornerRadius = 16.dp
+        cornerRadius = 16f.dp
         setStroke(strokeWidth, Color.TRANSPARENT)
     }
 
