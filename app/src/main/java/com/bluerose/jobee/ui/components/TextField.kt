@@ -36,6 +36,8 @@ class TextField @JvmOverloads constructor(
     private var actionIcon: Drawable? = null
     private var animationDuration = 300L
 
+    private var onFocusChanged: ((hasFocus: Boolean) -> Unit)? = null
+
     private val colorPrimary = context.getThemeColor(R.attr.colorPrimary)
     private val colorPrimaryContainer = context.getThemeColor(R.attr.colorPrimaryContainer)
     private val colorSurfaceHigh = context.getThemeColor(R.attr.colorSurfaceHigh)
@@ -128,6 +130,7 @@ class TextField @JvmOverloads constructor(
                     else -> TextFieldState.Empty
                 }
             )
+            onFocusChanged?.invoke(hasFocus)
         }
         binding.editText.addTextChangedListener {
             when {
@@ -182,8 +185,11 @@ class TextField @JvmOverloads constructor(
         val animators = arrayListOf<Animator>()
         val (backgroundColor, strokeColor, tintColor) = getAnimatedStateConfig(state)
 
-        val backgroundColorAnimator =
-            ValueAnimator.ofObject(ArgbEvaluator(), backgroundColor.first, backgroundColor.second)
+        val backgroundColorAnimator = ValueAnimator.ofObject(
+            ArgbEvaluator(),
+            backgroundColor.first,
+            backgroundColor.second
+        )
         backgroundColorAnimator.addUpdateListener {
             backgroundDrawable.setColor(it.animatedValue as Int)
         }
@@ -247,6 +253,10 @@ class TextField @JvmOverloads constructor(
 
     fun setActionOnClickListener(l: OnClickListener) {
         binding.action.setOnClickListener(l)
+    }
+
+    fun setOnFocusChangedListener(l: (hasFocus: Boolean) -> Unit) {
+        onFocusChanged = l
     }
 
     fun getText(): String = binding.editText.text.toString()

@@ -124,4 +124,12 @@
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
     </style>
+
+    <!-- SearchField widget styles -->
+    <style name="Widget.SearchField.Base" parent="">
+        <item name="hint">Search something...</item>
+        <item name="icon">@drawable/ic_magnifier</item>
+        <item name="action">custom</item>
+        <item name="actionIcon">@drawable/ic_tuning</item>
+    </style>
 </resources>
