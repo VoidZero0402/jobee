@@ -28,4 +28,5 @@
     <attr name="chipStyle" format="reference" />
     <attr name="dropdownContainerStyle" format="reference" />
     <attr name="dropdownItemStyle" format="reference" />
+    <attr name="listItemContainerStyle" format="reference" />
 </resources>

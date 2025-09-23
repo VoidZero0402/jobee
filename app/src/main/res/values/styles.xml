@@ -188,4 +188,13 @@
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+    <!-- ListItem widget styles -->
+    <style name="Widget.ListItem.Container" parent="">
+        <item name="android:padding">16dp</item>
+        <item name="android:gravity">center|start</item>
+        <item name="android:background">@drawable/ripple_list_item</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
 </resources>
