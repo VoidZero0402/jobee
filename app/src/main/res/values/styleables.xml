@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="animationDuration" format="integer" />
+    <attr name="checked" format="boolean" />
     <declare-styleable name="TextField">
         <attr name="inputType" format="enum">
             <enum name="text" value="0" />
@@ -21,7 +22,7 @@
         <attr name="animationDuration" />
     </declare-styleable>
     <declare-styleable name="Chip">
-        <attr name="checked" format="boolean" />
+        <attr name="checked" />
         <attr name="checkable" format="boolean" />
         <attr name="animationDuration" />
     </declare-styleable>
@@ -34,5 +35,9 @@
         <attr name="horizontalGap" format="dimension" />
         <attr name="verticalGap" format="dimension" />
         <attr name="singleSelection" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="Switch">
+        <attr name="checked" />
+        <attr name="animationDuration" />
     </declare-styleable>
 </resources>
