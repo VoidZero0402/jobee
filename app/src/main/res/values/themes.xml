@@ -16,6 +16,8 @@
         <item name="colorAccent">?attr/colorNeutral</item>
         <item name="textFieldContainer">@style/Widget.TextField.Container</item>
         <item name="chipStyle">@style/Widget.Chip.Primary</item>
+        <item name="dropdownContainerStyle">@style/Widget.Dropdown.Container</item>
+        <item name="dropdownItemStyle">@style/Widget.Dropdown.Item</item>
         <item name="textAllCaps">false</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:windowBackground">?attr/colorSurface</item>

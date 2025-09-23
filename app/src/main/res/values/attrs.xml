@@ -26,4 +26,6 @@
 
     <attr name="textFieldContainer" format="reference" />
     <attr name="chipStyle" format="reference" />
+    <attr name="dropdownContainerStyle" format="reference" />
+    <attr name="dropdownItemStyle" format="reference" />
 </resources>
