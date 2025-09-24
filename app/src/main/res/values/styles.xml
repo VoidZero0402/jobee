@@ -197,4 +197,18 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
+
+    <!-- Tab widget styles -->
+    <style name="Widget.Tab.Base" parent="">
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ripple_tab</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body.XLarge.Semibold</item>
+        <item name="android:textColor">?attr/colorNeutral</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
 </resources>

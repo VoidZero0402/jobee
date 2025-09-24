@@ -29,4 +29,5 @@
     <attr name="dropdownContainerStyle" format="reference" />
     <attr name="dropdownItemStyle" format="reference" />
     <attr name="listItemContainerStyle" format="reference" />
+    <attr name="tabStyle" format="reference" />
 </resources>
