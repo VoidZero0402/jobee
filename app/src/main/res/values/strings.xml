@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Jobee</string>
+    <string name="cd_back_navigation">Back navigation</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <!-- Heading text appearance styles -->
     <style name="TextAppearance.Heading.Base" parent="">
-        <item name="fontFamily">@font/gilroy_bold</item>
+        <item name="fontFamily">@font/gilroy_semibold</item>
     </style>
 
     <style name="TextAppearance.Heading1" parent="TextAppearance.Heading.Base">
