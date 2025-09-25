@@ -47,4 +47,9 @@
     <declare-styleable name="TabLayout">
         <attr name="scrollable" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="NavItem">
+        <attr name="text" />
+        <attr name="icon" />
+        <attr name="activeIcon" format="reference" />
+    </declare-styleable>
 </resources>

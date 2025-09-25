@@ -15,12 +15,14 @@
         <item name="scrimColor">@color/black_scrim</item>
         <item name="colorAccent">?attr/colorNeutral</item>
         <item name="rippleColorVariant">@color/blue_transparent</item>
-        <item name="textFieldContainer">@style/Widget.TextField.Container</item>
+        <item name="textFieldContainerStyle">@style/Widget.TextField.Container</item>
         <item name="chipStyle">@style/Widget.Chip.Primary</item>
         <item name="dropdownContainerStyle">@style/Widget.Dropdown.Container</item>
         <item name="dropdownItemStyle">@style/Widget.Dropdown.Item</item>
         <item name="listItemContainerStyle">@style/Widget.ListItem.Container</item>
         <item name="tabStyle">@style/Widget.Tab.Base</item>
+        <item name="bottomNavigationContainerStyle">@style/Widget.BottomNavigationView.Container</item>
+        <item name="navItemContainerStyle">@style/Widget.NavItem.Container</item>
         <item name="textAllCaps">false</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:windowBackground">?attr/colorSurface</item>

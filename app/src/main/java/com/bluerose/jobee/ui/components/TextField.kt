@@ -26,7 +26,7 @@ import com.bluerose.jobee.ui.utils.getThemeColor
 class TextField @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.textFieldContainer
+    defStyleAttr: Int = R.attr.textFieldContainerStyle
 ) : LinearLayout(context, attrs, defStyleAttr) {
     private val binding = WidgetTextFieldBinding.inflate(LayoutInflater.from(context), this)
     private var inputType = 0
