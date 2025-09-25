@@ -14,6 +14,7 @@
         <item name="colorErrorContainer">@color/red_transparent</item>
         <item name="scrimColor">@color/black_scrim</item>
         <item name="colorAccent">?attr/colorNeutral</item>
+        <item name="rippleColorVariant">@color/blue_transparent</item>
         <item name="textFieldContainer">@style/Widget.TextField.Container</item>
         <item name="chipStyle">@style/Widget.Chip.Primary</item>
         <item name="dropdownContainerStyle">@style/Widget.Dropdown.Container</item>

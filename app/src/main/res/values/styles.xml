@@ -208,6 +208,7 @@
         <item name="android:background">@drawable/ripple_tab</item>
         <item name="android:textAppearance">@style/TextAppearance.Body.XLarge.Semibold</item>
         <item name="android:textColor">?attr/colorNeutral</item>
+        <item name="android:singleLine">true</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>

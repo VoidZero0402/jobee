@@ -18,7 +18,6 @@ class Tab @JvmOverloads constructor(
 
     private val colorPrimary = context.getThemeColor(R.attr.colorPrimary)
     private val colorNeutral = context.getThemeColor(R.attr.colorNeutral)
-    private val evaluator = ArgbEvaluator()
 
     private fun applyStateAnimation() {
         val fromColor = if (isActiveState) colorNeutral else colorPrimary
@@ -27,16 +26,12 @@ class Tab @JvmOverloads constructor(
         animator.addUpdateListener {
             setTextColor(it.animatedValue as Int)
         }
-        animator.duration = AnimationDuration.MEDIUM.duration.toLong()
+        animator.duration = AnimationDuration.LONG.duration.toLong()
         animator.start()
     }
 
     private fun applyStateInstant() {
         setTextColor(if (isActiveState) colorPrimary else colorNeutral)
-    }
-
-    fun applyEvaluatedColor(fraction: Float) {
-        setTextColor(evaluator.evaluate(fraction, colorPrimary, colorNeutral) as Int)
     }
 
     fun activate() {

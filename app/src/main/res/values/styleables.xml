@@ -44,4 +44,7 @@
         <attr name="tintColor" format="color" />
         <attr name="navigationArrowVisible" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="TabLayout">
+        <attr name="scrollable" format="boolean" />
+    </declare-styleable>
 </resources>

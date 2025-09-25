@@ -15,6 +15,7 @@
     <attr name="colorSurfaceHighestVariant" format="color|reference" />
     <attr name="scrimColor" format="color|reference" />
     <attr name="rippleColor" format="color|reference" />
+    <attr name="rippleColorVariant" format="color|reference" />
     <attr name="colorSuccess" format="color|reference" />
     <attr name="colorSuccessContainer" format="color|reference" />
     <attr name="colorInfo" format="color|reference" />
