@@ -2,16 +2,24 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@null"
-        android:visibility="gone" />
+    <FrameLayout
+        android:id="@+id/logo_container"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null" />
+
+    </FrameLayout>
+
 
     <ImageButton
-        android:id="@+id/navigation_button"
+        android:id="@+id/navigation_action"
         style="@style/Widget.Button.IconButton"
         android:contentDescription="@string/cd_back_navigation"
         android:src="@drawable/ic_arrow_left"
