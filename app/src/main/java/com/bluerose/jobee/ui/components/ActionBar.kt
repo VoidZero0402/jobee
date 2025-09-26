@@ -4,11 +4,14 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.children
 import com.bluerose.jobee.R
 import com.bluerose.jobee.databinding.LayoutActionBarBinding
+import com.bluerose.jobee.ui.utils.Dimensions.dp
 import com.bluerose.jobee.ui.utils.preformBackNavigation
 
 class ActionBar @JvmOverloads constructor(
@@ -24,6 +27,8 @@ class ActionBar @JvmOverloads constructor(
             _title = value
             binding.title.text = _title
         }
+    val actions: List<ImageButton>
+        get() = binding.actionsContainer.children.filterIsInstance<ImageButton>().toList()
 
     data class Action(
         val icon: Drawable?,
@@ -90,5 +95,20 @@ class ActionBar @JvmOverloads constructor(
 
     fun setOnNavigationActionClickListener(l: OnClickListener) {
         binding.navigationAction.setOnClickListener(l)
+    }
+
+    fun setActions(vararg actions: Action) {
+        actions.forEach {
+            binding.actionsContainer.addView(ImageButton(context, null, R.attr.iconButtonStyle).apply {
+                layoutParams = LayoutParams(48.dp, 48.dp)
+                setImageDrawable(it.icon)
+                contentDescription = it.contentDescription
+                setOnClickListener(it.onClick)
+            })
+        }
+    }
+
+    fun getActionAtPosition(position: Int): ImageButton? {
+        return binding.actionsContainer.children.elementAtOrNull(position) as ImageButton?
     }
 }

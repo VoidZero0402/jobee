@@ -41,11 +41,13 @@
         <item name="android:layout_height">48dp</item>
         <item name="android:background">@drawable/ripple_clickable</item>
         <item name="tint">?attr/colorNeutralHighest</item>
+        <item name="android:scaleType">centerInside</item>
     </style>
 
     <style name="Widget.Button.IconButton.Base" parent="">
         <item name="android:layout_width">58dp</item>
         <item name="android:layout_height">58dp</item>
+        <item name="android:scaleType">centerInside</item>
     </style>
 
     <style name="Widget.Button.IconButton.Primary.Base" parent="Widget.Button.IconButton.Base">
