@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.core.animation.doOnEnd
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
@@ -71,6 +72,15 @@ class BottomNavigation @JvmOverloads constructor(
         val animatorSet = AnimatorSet()
         animatorSet.duration = AnimationDuration.LONG.duration.toLong()
         animatorSet.playTogether(translationAnimator, alphaAnimator)
+
+        if (isNavigationHide) {
+            animatorSet.doOnEnd {
+                visibility = GONE
+            }
+        } else {
+            visibility = VISIBLE
+        }
+
         animatorSet.start()
     }
 

@@ -40,7 +40,7 @@
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:background">@drawable/ripple_clickable</item>
-        <item name="tint">?attr/colorNeutralHighest</item>
+        <item name="android:tint">?attr/colorNeutralHighest</item>
         <item name="android:scaleType">centerInside</item>
     </style>
 
@@ -224,7 +224,9 @@
 
     <!-- BottomNavigation widget styles -->
     <style name="Widget.BottomNavigationView.Container" parent="">
-        <item name="android:padding">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
         <item name="android:background">@drawable/shape_bottom_navigation</item>
     </style>
 

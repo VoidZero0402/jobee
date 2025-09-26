@@ -1,16 +1,20 @@
 package com.bluerose.jobee.ui.components
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import androidx.core.animation.doOnEnd
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import com.bluerose.jobee.R
 import com.bluerose.jobee.databinding.LayoutActionBarBinding
+import com.bluerose.jobee.ui.utils.AnimationDuration
 import com.bluerose.jobee.ui.utils.Dimensions.dp
 import com.bluerose.jobee.ui.utils.preformBackNavigation
 
@@ -20,6 +24,7 @@ class ActionBar @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.actionBarContainerStyle
 ) : LinearLayout(context, attrs, defStyleAttr) {
     private val binding = LayoutActionBarBinding.inflate(LayoutInflater.from(context), this)
+    private var isActionbarHide = false
     private var _title = resources.getString(R.string.app_name)
     var title: String
         get() = _title
@@ -34,6 +39,11 @@ class ActionBar @JvmOverloads constructor(
         val icon: Drawable?,
         val contentDescription: String,
         val onClick: OnClickListener?
+    )
+
+    private data class AnimatedStateConfig(
+        val translateY: Pair<Float, Float>,
+        val alpha: Pair<Float, Float>
     )
 
     init {
@@ -60,6 +70,50 @@ class ActionBar @JvmOverloads constructor(
         binding.navigationAction.setOnClickListener {
             context.preformBackNavigation()
         }
+    }
+
+    private fun getAnimatedStateConfig(): AnimatedStateConfig {
+        return when {
+            isActionbarHide -> AnimatedStateConfig(0f to (-8f).dp, 1f to 0f)
+            else -> AnimatedStateConfig((-8f).dp to 0f, 0f to 1f)
+        }
+    }
+
+    private fun applyStateAnimation() {
+        val (translateYState, alphaState) = getAnimatedStateConfig()
+        val translationAnimator = ValueAnimator.ofFloat(translateYState.first, translateYState.second)
+        translationAnimator.addUpdateListener {
+            translationY = it.animatedValue as Float
+        }
+
+        val alphaAnimator = ValueAnimator.ofFloat(alphaState.first, alphaState.second)
+        alphaAnimator.addUpdateListener {
+            alpha = it.animatedValue as Float
+        }
+
+        val animatorSet = AnimatorSet()
+        animatorSet.duration = AnimationDuration.LONG.duration.toLong()
+        animatorSet.playTogether(translationAnimator, alphaAnimator)
+
+        if (isActionbarHide) {
+            animatorSet.doOnEnd {
+                visibility = GONE
+            }
+        } else {
+            visibility = VISIBLE
+        }
+
+        animatorSet.start()
+    }
+
+    fun hideAnimated() {
+        isActionbarHide = true
+        applyStateAnimation()
+    }
+
+    fun showAnimated() {
+        isActionbarHide = false
+        applyStateAnimation()
     }
 
     fun resetNavigationAction() {
