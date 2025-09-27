@@ -24,7 +24,10 @@
     <string name="dummy_notification_description">Now Jobee has a Two-Factor Authentication. Try it now to make your account more secure.</string>
     <string name="dummy_application_job">UX Designer &amp; Developer</string>
     <string name="dummy_application_company">Pinterest</string>
-
+    <string name="dummy_chat_company">Google LLC</string>
+    <string name="dummy_chat_message">Will the contract be sent?</string>
+    <string name="dummy_chat_time">Yesterday</string>
+    <string name="dummy_chat_unread_count">2</string>
 
     <!-- Others -->
     <string name="divider_line">|</string>

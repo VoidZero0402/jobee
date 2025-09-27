@@ -98,6 +98,15 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="Widget.Tag.Secondary.Circle" parent="">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_tag_secondary_circle</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body.XSmall.Semibold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="Widget.Tag.Success" parent="Widget.Tag.Base">
         <item name="android:background">@drawable/shape_tag_success</item>
         <item name="android:textColor">?attr/colorSuccess</item>
