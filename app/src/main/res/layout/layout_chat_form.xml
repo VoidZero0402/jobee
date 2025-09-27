@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/chat_form_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_chat_text_field"
+        android:gravity="center|start"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/float_action"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/emoji_action"
+            style="@style/Widget.Button.IconButton.Small"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/cd_choose_emoji"
+            android:src="@drawable/ic_smile_circle"
+            app:tint="?attr/colorNeutralLow" />
+
+        <EditText
+            android:id="@+id/message_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_chat_form"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:labelFor="@id/chat_form_container"
+            android:lineSpacingExtra="6dp"
+            android:maxLines="8"
+            android:minHeight="40dp"
+            android:paddingHorizontal="4dp"
+            android:scrollbars="none"
+            android:textAppearance="@style/TextAppearance.Body.Large.Medium"
+            android:textColor="?attr/colorNeutralHighest"
+            android:textColorHint="?attr/colorNeutralLow" />
+
+        <ImageButton
+            android:id="@+id/camera_action"
+            style="@style/Widget.Button.IconButton.Small"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/cd_open_camera"
+            android:src="@drawable/ic_camera_bold"
+            app:tint="?attr/colorNeutralLow" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/float_action"
+        style="@style/Widget.Button.IconButton.Primary.Rounded"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:contentDescription="@string/cd_record_voice"
+        android:src="@drawable/ic_microphone_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</merge>

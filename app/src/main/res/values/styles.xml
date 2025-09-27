@@ -44,6 +44,11 @@
         <item name="android:scaleType">centerInside</item>
     </style>
 
+    <style name="Widget.Button.IconButton.Small" parent="Widget.Button.IconButton">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
     <style name="Widget.Button.IconButton.Base" parent="">
         <item name="android:layout_width">58dp</item>
         <item name="android:layout_height">58dp</item>

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Jobee</string>
+    <string name="hint_chat_form">Type a message…</string>
     <string name="cd_back_navigation">Back navigation</string>
+    <string name="cd_record_voice">Record voice message</string>
+    <string name="cd_send_message">Send message</string>
+    <string name="cd_choose_emoji">Choose emoji</string>
+    <string name="cd_open_camera">Open camera</string>
 </resources>
