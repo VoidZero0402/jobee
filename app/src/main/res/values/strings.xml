@@ -1,9 +1,24 @@
 <resources>
+    <!-- Strings -->
     <string name="app_name">Jobee</string>
+    <string name="notification_new">New</string>
+
+    <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
+
+    <!-- Content descriptions -->
     <string name="cd_back_navigation">Back navigation</string>
     <string name="cd_record_voice">Record voice message</string>
     <string name="cd_send_message">Send message</string>
     <string name="cd_choose_emoji">Choose emoji</string>
     <string name="cd_open_camera">Open camera</string>
+
+    <!-- Dummies strings -->
+    <string name="dummy_notification_title">Security Updates!</string>
+    <string name="dummy_notification_date">20 Dec, 2022</string>
+    <string name="dummy_notification_time">20:49 PM</string>
+    <string name="dummy_notification_description">Now Jobee has a Two-Factor Authentication. Try it now to make your account more secure.</string>
+
+    <!-- Others -->
+    <string name="divider_line">|</string>
 </resources>

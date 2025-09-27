@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_notification_title"
+        android:textAppearance="@style/TextAppearance.Heading5"
+        android:textColor="?attr/colorNeutralHighest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Widget.Tag.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notification_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/datetime_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        app:constraint_referenced_ids="date,divider,time"
+        app:flow_horizontalGap="8dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/dummy_notification_date"
+        android:textAppearance="@style/TextAppearance.Body.Medium.Medium"
+        android:textColor="?attr/colorNeutral" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:importantForAccessibility="no"
+        android:text="@string/divider_line"
+        android:textAppearance="@style/TextAppearance.Body.Medium.Medium"
+        android:textColor="?attr/colorNeutral"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/dummy_notification_time"
+        android:textAppearance="@style/TextAppearance.Body.Medium.Medium"
+        android:textColor="?attr/colorNeutral" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:lineSpacingExtra="8dp"
+        android:text="@string/dummy_notification_description"
+        android:textAppearance="@style/TextAppearance.Body.Large"
+        android:textColor="?attr/colorNeutral"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/datetime_flow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
