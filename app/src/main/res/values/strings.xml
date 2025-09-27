@@ -2,6 +2,10 @@
     <!-- Strings -->
     <string name="app_name">Jobee</string>
     <string name="notification_new">New</string>
+    <string name="application_sent">Application Sent</string>
+    <string name="application_accepted">Application Accepted</string>
+    <string name="application_rejected">Application Rejected</string>
+    <string name="application_pending">Application Pending</string>
 
     <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
@@ -18,6 +22,9 @@
     <string name="dummy_notification_date">20 Dec, 2022</string>
     <string name="dummy_notification_time">20:49 PM</string>
     <string name="dummy_notification_description">Now Jobee has a Two-Factor Authentication. Try it now to make your account more secure.</string>
+    <string name="dummy_application_job">UX Designer &amp; Developer</string>
+    <string name="dummy_application_company">Pinterest</string>
+
 
     <!-- Others -->
     <string name="divider_line">|</string>
