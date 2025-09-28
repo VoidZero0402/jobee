@@ -16,6 +16,8 @@
     <string name="cd_send_message">Send message</string>
     <string name="cd_choose_emoji">Choose emoji</string>
     <string name="cd_open_camera">Open camera</string>
+    <string name="cd_save_job">Save job</string>
+    <string name="cd_unsave_job">Unsave job</string>
 
     <!-- Dummies strings -->
     <string name="dummy_notification_title">Security Updates!</string>
@@ -28,6 +30,10 @@
     <string name="dummy_chat_message">Will the contract be sent?</string>
     <string name="dummy_chat_time">Yesterday</string>
     <string name="dummy_chat_unread_count">2</string>
+    <string name="dummy_job_title">Sales &amp; Marketing</string>
+    <string name="dummy_job_company">Apple Inc.</string>
+    <string name="dummy_job_location">Chicago, United States</string>
+    <string name="dummy_job_salary">$5,000 - $12,000 /month</string>
 
     <!-- Others -->
     <string name="divider_line">|</string>

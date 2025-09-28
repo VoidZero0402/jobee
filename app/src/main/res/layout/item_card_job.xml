@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_job_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/company_logo"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:contentDescription="@null"
+        android:src="@drawable/logo_apple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="title,company_name"
+        app:flow_horizontalAlign="start"
+        app:flow_verticalGap="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/company_logo"
+        app:layout_constraintEnd_toStartOf="@id/save_action"
+        app:layout_constraintStart_toEndOf="@id/company_logo"
+        app:layout_constraintTop_toTopOf="@id/company_logo"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_job_title"
+        android:textAppearance="@style/TextAppearance.Heading6"
+        android:textColor="?attr/colorNeutralHighest" />
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_job_company"
+        android:textAppearance="@style/TextAppearance.Body.Large"
+        android:textColor="?attr/colorNeutral" />
+
+    <ImageButton
+        android:id="@+id/save_action"
+        style="@style/Widget.Button.IconButton.Small"
+        android:contentDescription="@string/cd_save_job"
+        android:src="@drawable/ic_bookmark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flow" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/dummy_job_location"
+        android:textAppearance="@style/TextAppearance.Body.XLarge.Medium"
+        android:textColor="?attr/colorNeutral"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/company_logo" />
+
+    <TextView
+        android:id="@+id/salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/dummy_job_salary"
+        android:textAppearance="@style/TextAppearance.Body.XLarge.Semibold"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/tags_flow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="8dp"
+        app:flow_horizontalStyle="packed"
+        app:flow_verticalBias="0"
+        app:flow_verticalGap="8dp"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/salary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

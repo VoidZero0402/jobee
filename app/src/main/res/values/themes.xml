@@ -25,6 +25,7 @@
         <item name="navItemContainerStyle">@style/Widget.NavItem.Container</item>
         <item name="iconButtonStyle">@style/Widget.Button.IconButton</item>
         <item name="actionBarContainerStyle">@style/Widget.ActionBar.Container</item>
+        <item name="tagStyle">@style/Widget.Tag.Primary</item>
         <item name="textAllCaps">false</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:windowBackground">?attr/colorSurface</item>
