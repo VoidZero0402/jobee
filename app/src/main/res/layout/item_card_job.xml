@@ -23,10 +23,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"
         android:orientation="vertical"
         app:constraint_referenced_ids="title,company_name"
         app:flow_horizontalAlign="start"
         app:flow_verticalGap="6dp"
+        app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toBottomOf="@id/company_logo"
         app:layout_constraintEnd_toStartOf="@id/save_action"
         app:layout_constraintStart_toEndOf="@id/company_logo"
@@ -37,6 +39,8 @@
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_job_title"
         android:textAppearance="@style/TextAppearance.Heading6"
         android:textColor="?attr/colorNeutralHighest" />
@@ -45,6 +49,8 @@
         android:id="@+id/company_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_job_company"
         android:textAppearance="@style/TextAppearance.Body.Large"
         android:textColor="?attr/colorNeutral" />
@@ -59,23 +65,29 @@
 
     <TextView
         android:id="@+id/location"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_job_location"
         android:textAppearance="@style/TextAppearance.Body.XLarge.Medium"
         android:textColor="?attr/colorNeutral"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/company_logo" />
 
     <TextView
         android:id="@+id/salary"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_job_salary"
         android:textAppearance="@style/TextAppearance.Body.XLarge.Semibold"
         android:textColor="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/location" />
 

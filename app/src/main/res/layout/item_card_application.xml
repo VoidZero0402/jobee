@@ -27,6 +27,7 @@
         app:constraint_referenced_ids="job,company_name"
         app:flow_horizontalAlign="start"
         app:flow_verticalGap="6dp"
+        app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toBottomOf="@id/company_logo"
         app:layout_constraintEnd_toStartOf="@id/arrow"
         app:layout_constraintStart_toEndOf="@id/company_logo"
@@ -37,6 +38,8 @@
         android:id="@+id/job"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_application_job"
         android:textAppearance="@style/TextAppearance.Heading6"
         android:textColor="?attr/colorNeutralHighest" />
@@ -45,6 +48,8 @@
         android:id="@+id/company_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_application_company"
         android:textAppearance="@style/TextAppearance.Body.Large"
         android:textColor="?attr/colorNeutral" />

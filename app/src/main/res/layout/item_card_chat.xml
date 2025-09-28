@@ -23,10 +23,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         app:constraint_referenced_ids="company_name,message"
         app:flow_horizontalAlign="start"
         app:flow_verticalGap="6dp"
+        app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toBottomOf="@id/company_logo"
         app:layout_constraintEnd_toStartOf="@id/time"
         app:layout_constraintStart_toEndOf="@id/company_logo"
@@ -37,7 +39,8 @@
         android:id="@+id/company_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_chat_company"
         android:textAppearance="@style/TextAppearance.Heading6"
         android:textColor="?attr/colorNeutralHighest" />
@@ -46,6 +49,8 @@
         android:id="@+id/message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_chat_message"
         android:textAppearance="@style/TextAppearance.Body.Large"
         android:textColor="?attr/colorNeutral" />
@@ -54,6 +59,7 @@
         android:id="@+id/unread_message_count"
         style="@style/Widget.Tag.Secondary.Circle"
         android:text="@string/dummy_chat_unread_count"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/flow" />
 
