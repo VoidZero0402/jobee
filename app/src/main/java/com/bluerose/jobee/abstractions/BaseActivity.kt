@@ -28,11 +28,16 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     @Suppress("UNCHECKED_CAST")
     private fun inflateBinding(): VB {
-        val superclass = javaClass.genericSuperclass as ParameterizedType
+        val superclass = javaClass.genericSuperclass
+        require(superclass is ParameterizedType) {
+            "BaseActivity must be directly subclassed with generic type arguments"
+        }
         val viewBindingClass = superclass.actualTypeArguments[0] as Class<VB>
         val inflateMethod = viewBindingClass.getMethod("inflate", LayoutInflater::class.java)
         return inflateMethod.invoke(null, layoutInflater) as VB
     }
 
     open fun onViewCreated() {}
+
+    open fun onLayoutStateChanged(state: LayoutState) {}
 }

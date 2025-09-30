@@ -9,16 +9,31 @@ import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
 open class BaseFragment<VB : ViewBinding> : Fragment() {
-    private lateinit var binding: VB
+    private var _binding: VB? = null
+    protected val binding get() = _binding!!
+
+    open val layoutState = LayoutState()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = inflateBinding(inflater, container)
+        _binding = inflateBinding(inflater, container)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as? BaseActivity<*>)?.onLayoutStateChanged(layoutState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     @Suppress("UNCHECKED_CAST")
     private fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?): VB {
-        val superclass = javaClass.genericSuperclass as ParameterizedType
+        val superclass = javaClass.genericSuperclass
+        require(superclass is ParameterizedType) {
+            "BaseFragment must be directly subclassed with generic type arguments"
+        }
         val viewBindingClass = superclass.actualTypeArguments[0] as Class<VB>
         val inflateMethod = viewBindingClass.getMethod(
             "inflate",
@@ -26,6 +41,6 @@ open class BaseFragment<VB : ViewBinding> : Fragment() {
             ViewGroup::class.java,
             Boolean::class.java
         )
-        return inflateMethod.invoke(null, inflater, container, true) as VB
+        return inflateMethod.invoke(null, inflater, container, false) as VB
     }
 }
