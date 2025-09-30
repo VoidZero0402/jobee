@@ -29,8 +29,10 @@ class ActionBar @JvmOverloads constructor(
     var title: String
         get() = _title
         set(value) {
-            _title = value
-            binding.title.text = _title
+            if (value != _title) {
+                _title = value
+                binding.title.text = _title
+            }
         }
     val actions: List<ImageButton>
         get() = binding.actionsContainer.children.filterIsInstance<ImageButton>().toList()
@@ -39,6 +41,15 @@ class ActionBar @JvmOverloads constructor(
         val icon: Drawable?,
         val contentDescription: String,
         val onClick: OnClickListener?
+    )
+
+    data class Config(
+        val title: String = "",
+        val isNavigationActionVisible: Boolean = true,
+        val navigationAction: Action? = null,
+        val shouldResetNavigationAction: Boolean = false,
+        val logo: Drawable? = null,
+        val actions: List<Action> = emptyList()
     )
 
     private data class AnimatedStateConfig(
@@ -74,8 +85,8 @@ class ActionBar @JvmOverloads constructor(
 
     private fun getAnimatedStateConfig(): AnimatedStateConfig {
         return when {
-            isActionbarHide -> AnimatedStateConfig(0f to (-8f).dp, 1f to 0f)
-            else -> AnimatedStateConfig((-8f).dp to 0f, 0f to 1f)
+            isActionbarHide -> AnimatedStateConfig(0f to (-4f).dp, 1f to 0f)
+            else -> AnimatedStateConfig((-4f).dp to 0f, 0f to 1f)
         }
     }
 
@@ -92,12 +103,12 @@ class ActionBar @JvmOverloads constructor(
         }
 
         val animatorSet = AnimatorSet()
-        animatorSet.duration = AnimationDuration.LONG.duration.toLong()
+        animatorSet.duration = AnimationDuration.MEDIUM.duration.toLong()
         animatorSet.playTogether(translationAnimator, alphaAnimator)
 
         if (isActionbarHide) {
             animatorSet.doOnEnd {
-                visibility = GONE
+                visibility = INVISIBLE
             }
         } else {
             visibility = VISIBLE
@@ -106,14 +117,28 @@ class ActionBar @JvmOverloads constructor(
         animatorSet.start()
     }
 
+    fun applyConfig(config: Config) {
+        val (title, isNavigationActionVisible, navigationAction, shouldResetNavigationAction, logo, actions) = config
+        this.title = title
+        if (isNavigationActionVisible) showNavigationAction() else hideNavigationAction()
+        if (navigationAction != null) setNavigationAction(navigationAction)
+        if (shouldResetNavigationAction) resetNavigationAction()
+        setLogo(logo)
+        setActions(actions)
+    }
+
     fun hideAnimated() {
-        isActionbarHide = true
-        applyStateAnimation()
+        if (!isActionbarHide) {
+            isActionbarHide = true
+            applyStateAnimation()
+        }
     }
 
     fun showAnimated() {
-        isActionbarHide = false
-        applyStateAnimation()
+        if (isActionbarHide) {
+            isActionbarHide = false
+            applyStateAnimation()
+        }
     }
 
     fun resetNavigationAction() {
@@ -140,18 +165,23 @@ class ActionBar @JvmOverloads constructor(
     }
 
     fun showNavigationAction() {
-        binding.navigationAction.visibility = VISIBLE
+        binding.navigationAction.apply {
+            if (visibility != VISIBLE) {
+                visibility = VISIBLE
+            }
+        }
     }
 
     fun hideNavigationAction() {
-        binding.navigationAction.visibility = GONE
+        binding.navigationAction.apply {
+            if (visibility != GONE) {
+                visibility = GONE
+            }
+        }
     }
 
-    fun setOnNavigationActionClickListener(l: OnClickListener) {
-        binding.navigationAction.setOnClickListener(l)
-    }
-
-    fun setActions(vararg actions: Action) {
+    fun setActions(actions: List<Action>) {
+        binding.actionsContainer.removeAllViews()
         actions.forEach {
             binding.actionsContainer.addView(ImageButton(context, null, R.attr.iconButtonStyle).apply {
                 layoutParams = LayoutParams(48.dp, 48.dp)

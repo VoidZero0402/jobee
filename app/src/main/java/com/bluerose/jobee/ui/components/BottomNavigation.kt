@@ -52,8 +52,8 @@ class BottomNavigation @JvmOverloads constructor(
 
     private fun getAnimatedStateConfig(): AnimatedStateConfig {
         return when {
-            isNavigationHide -> AnimatedStateConfig(0f to 8f.dp, 1f to 0f)
-            else -> AnimatedStateConfig(8f.dp to 0f, 0f to 1f)
+            isNavigationHide -> AnimatedStateConfig(0f to 4f.dp, 1f to 0f)
+            else -> AnimatedStateConfig(4f.dp to 0f, 0f to 1f)
         }
     }
 
@@ -70,7 +70,7 @@ class BottomNavigation @JvmOverloads constructor(
         }
 
         val animatorSet = AnimatorSet()
-        animatorSet.duration = AnimationDuration.LONG.duration.toLong()
+        animatorSet.duration = AnimationDuration.MEDIUM.duration.toLong()
         animatorSet.playTogether(translationAnimator, alphaAnimator)
 
         if (isNavigationHide) {
@@ -85,13 +85,17 @@ class BottomNavigation @JvmOverloads constructor(
     }
 
     fun hideAnimated() {
-        isNavigationHide = true
-        applyStateAnimation()
+        if (!isNavigationHide) {
+            isNavigationHide = true
+            applyStateAnimation()
+        }
     }
 
     fun showAnimated() {
-        isNavigationHide = false
-        applyStateAnimation()
+        if (isNavigationHide) {
+            isNavigationHide = false
+            applyStateAnimation()
+        }
     }
 
     fun selectNavItemAtPosition(position: Int) {
