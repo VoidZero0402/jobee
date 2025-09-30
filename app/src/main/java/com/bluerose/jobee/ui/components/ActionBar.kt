@@ -16,6 +16,7 @@ import com.bluerose.jobee.R
 import com.bluerose.jobee.databinding.LayoutActionBarBinding
 import com.bluerose.jobee.ui.utils.AnimationDuration
 import com.bluerose.jobee.ui.utils.Dimensions.dp
+import com.bluerose.jobee.ui.utils.applySystemTopInsets
 import com.bluerose.jobee.ui.utils.preformBackNavigation
 
 class ActionBar @JvmOverloads constructor(
@@ -24,7 +25,8 @@ class ActionBar @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.actionBarContainerStyle
 ) : LinearLayout(context, attrs, defStyleAttr) {
     private val binding = LayoutActionBarBinding.inflate(LayoutInflater.from(context), this)
-    private var isActionbarHide = false
+    private var isActionBarHide = false
+    val isHidden get() = isActionBarHide
     private var _title = resources.getString(R.string.app_name)
     var title: String
         get() = _title
@@ -58,21 +60,11 @@ class ActionBar @JvmOverloads constructor(
     )
 
     init {
-        applySystemInsets()
+        applySystemTopInsets()
         setupView()
         setupListeners()
     }
-
-    private fun applySystemInsets() {
-        val initialPadding = paddingTop
-        ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(v.paddingLeft, initialPadding + systemBars.top, v.paddingRight, paddingBottom)
-            insets
-        }
-        ViewCompat.requestApplyInsets(this)
-    }
-
+    
     private fun setupView() {
         binding.title.text = _title
     }
@@ -85,7 +77,7 @@ class ActionBar @JvmOverloads constructor(
 
     private fun getAnimatedStateConfig(): AnimatedStateConfig {
         return when {
-            isActionbarHide -> AnimatedStateConfig(0f to (-4f).dp, 1f to 0f)
+            isActionBarHide -> AnimatedStateConfig(0f to (-4f).dp, 1f to 0f)
             else -> AnimatedStateConfig((-4f).dp to 0f, 0f to 1f)
         }
     }
@@ -106,7 +98,7 @@ class ActionBar @JvmOverloads constructor(
         animatorSet.duration = AnimationDuration.MEDIUM.duration.toLong()
         animatorSet.playTogether(translationAnimator, alphaAnimator)
 
-        if (isActionbarHide) {
+        if (isActionBarHide) {
             animatorSet.doOnEnd {
                 visibility = INVISIBLE
             }
@@ -127,16 +119,30 @@ class ActionBar @JvmOverloads constructor(
         setActions(actions)
     }
 
+    fun hide() {
+        if (!isActionBarHide) {
+            isActionBarHide = true
+            visibility = INVISIBLE
+        }
+    }
+
     fun hideAnimated() {
-        if (!isActionbarHide) {
-            isActionbarHide = true
+        if (!isActionBarHide) {
+            isActionBarHide = true
             applyStateAnimation()
         }
     }
 
+    fun show() {
+        if (isActionBarHide) {
+            isActionBarHide = false
+            visibility = VISIBLE
+        }
+    }
+
     fun showAnimated() {
-        if (isActionbarHide) {
-            isActionbarHide = false
+        if (isActionBarHide) {
+            isActionBarHide = false
             applyStateAnimation()
         }
     }

@@ -6,12 +6,11 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import com.bluerose.jobee.R
 import com.bluerose.jobee.ui.utils.AnimationDuration
 import com.bluerose.jobee.ui.utils.Dimensions.dp
+import com.bluerose.jobee.ui.utils.applySystemBottomInsets
 
 class BottomNavigation @JvmOverloads constructor(
     context: Context,
@@ -19,27 +18,18 @@ class BottomNavigation @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.bottomNavigationContainerStyle
 ) : LinearLayout(context, attrs, defStyleAttr) {
     private var isNavigationHide = false
+    val isHidden get() = isNavigationHide
     private lateinit var activeNavItem: NavItem
     private var onNavItemSelected: ((nav: NavItem, position: Int) -> Unit)? = null
 
     init {
-        applySystemInsets()
+        applySystemBottomInsets()
     }
 
     private data class AnimatedStateConfig(
         val translateY: Pair<Float, Float>,
         val alpha: Pair<Float, Float>
     )
-
-    private fun applySystemInsets() {
-        val initialPadding = paddingBottom
-        ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, initialPadding + systemBars.bottom)
-            insets
-        }
-        ViewCompat.requestApplyInsets(this)
-    }
 
     private fun selectNavItem(nav: NavItem, position: Int) {
         if (nav != activeNavItem) {
@@ -75,7 +65,7 @@ class BottomNavigation @JvmOverloads constructor(
 
         if (isNavigationHide) {
             animatorSet.doOnEnd {
-                visibility = GONE
+                visibility = INVISIBLE
             }
         } else {
             visibility = VISIBLE
@@ -84,10 +74,24 @@ class BottomNavigation @JvmOverloads constructor(
         animatorSet.start()
     }
 
+    fun hide() {
+        if (!isNavigationHide) {
+            isNavigationHide = true
+            visibility = INVISIBLE
+        }
+    }
+
     fun hideAnimated() {
         if (!isNavigationHide) {
             isNavigationHide = true
             applyStateAnimation()
+        }
+    }
+
+    fun show() {
+        if (isNavigationHide) {
+            isNavigationHide = false
+            visibility = VISIBLE
         }
     }
 
@@ -108,8 +112,6 @@ class BottomNavigation @JvmOverloads constructor(
     fun setOnNavItemSelectedListener(l: (nav: NavItem, position: Int) -> Unit) {
         onNavItemSelected = l
     }
-
-    fun isHidden(): Boolean = isNavigationHide
 
     override fun onFinishInflate() {
         super.onFinishInflate()
