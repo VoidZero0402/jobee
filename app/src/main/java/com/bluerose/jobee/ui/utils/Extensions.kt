@@ -5,6 +5,7 @@ import android.content.ContextWrapper
 import android.util.TypedValue
 import android.view.View
 import androidx.activity.ComponentActivity
+import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -26,11 +27,20 @@ fun Context.preformBackNavigation() {
     }
 }
 
+fun View.applySystemInsets(onApplyInsets: (insets: Insets) -> Unit) {
+    ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
+        val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        onApplyInsets(systemBars)
+        insets
+    }
+    ViewCompat.requestApplyInsets(this)
+}
+
 fun View.applySystemTopInsets() {
     val initialPadding = paddingTop
     ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-        v.setPadding(v.paddingLeft, initialPadding + systemBars.top, v.paddingRight, paddingBottom)
+        v.setPaddingTop(initialPadding + systemBars.top)
         insets
     }
     ViewCompat.requestApplyInsets(this)
@@ -40,8 +50,16 @@ fun View.applySystemBottomInsets() {
     val initialPadding = paddingBottom
     ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-        v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, initialPadding + systemBars.bottom)
+        v.setPaddingBottom(initialPadding + systemBars.bottom)
         insets
     }
     ViewCompat.requestApplyInsets(this)
+}
+
+fun View.setPaddingTop(padding: Int) {
+    setPadding(paddingStart, padding, paddingEnd, paddingBottom)
+}
+
+fun View.setPaddingBottom(padding: Int) {
+    setPadding(paddingStart, paddingTop, paddingEnd, padding)
 }
