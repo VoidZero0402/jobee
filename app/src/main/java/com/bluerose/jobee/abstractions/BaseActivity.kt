@@ -37,7 +37,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         return inflateMethod.invoke(null, layoutInflater) as VB
     }
 
-    fun navigateTo(fragment: BaseFragment<*>, args: Bundle?) {
+    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null) {
         fragment.arguments = args
         supportFragmentManager
             .beginTransaction()

@@ -50,7 +50,7 @@ open class BaseFragment<VB : ViewBinding> : Fragment() {
         return inflateMethod.invoke(null, inflater, container, false) as VB
     }
 
-    fun navigateTo(fragment: BaseFragment<*>, args: Bundle?) {
+    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null) {
         fragment.arguments = args
         parentFragmentManager
             .beginTransaction()

@@ -6,7 +6,10 @@ enum class LayoutMode {
     FULL_SCREEN,
     ACTION_BAR,
     BOTTOM_NAV,
-    ACTION_BAR_AND_BOTTOM_NAV
+    ACTION_BAR_AND_BOTTOM_NAV;
+
+    val hasActionBar get() = this == ACTION_BAR || this == ACTION_BAR_AND_BOTTOM_NAV
+    val hasBottomNavigation get() = this == BOTTOM_NAV || this == ACTION_BAR_AND_BOTTOM_NAV
 }
 
 data class LayoutState(
