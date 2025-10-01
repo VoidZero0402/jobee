@@ -1,5 +1,6 @@
 package com.bluerose.jobee.data
 
+import android.content.SharedPreferences
 import com.bluerose.jobee.data.models.Application
 import com.bluerose.jobee.data.models.Chat
 import com.bluerose.jobee.data.models.Job
@@ -9,7 +10,7 @@ inline fun <T> List<T>.applyIf(condition: Boolean, block: (List<T>) -> List<T>):
     return if (condition) block(this) else this
 }
 
-class SampleRepository {
+class SampleRepository(private val sharedPrefs: SharedPreferences) {
 
     enum class JobSortType {
         DEFAULT,
@@ -36,6 +37,10 @@ class SampleRepository {
                     else -> it
                 }
             }
+    }
+
+    fun getSavedJobs(): List<Job> {
+        return SampleDataSource.jobs
     }
 
     fun getCategories(): List<String> {
