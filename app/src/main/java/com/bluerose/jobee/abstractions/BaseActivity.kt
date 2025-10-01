@@ -37,6 +37,15 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         return inflateMethod.invoke(null, layoutInflater) as VB
     }
 
+    fun navigateTo(fragment: BaseFragment<*>, args: Bundle?) {
+        fragment.arguments = args
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     open fun onViewCreated() {}
 
     open fun onLayoutStateChanged(state: LayoutState) {}
