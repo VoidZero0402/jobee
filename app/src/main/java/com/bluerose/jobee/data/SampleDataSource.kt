@@ -484,11 +484,11 @@ object SampleDataSource {
         )
     )
     val applications: List<Application> = listOf(
-        Application(jobs[0], Application.Stage.Sent),
-        Application(jobs[1], Application.Stage.Pending),
-        Application(jobs[2], Application.Stage.Rejected),
-        Application(jobs[3], Application.Stage.Accepted),
-        Application(jobs[4], Application.Stage.Sent),
+        Application(jobs[0], Application.Stage.SENT),
+        Application(jobs[1], Application.Stage.PENDING),
+        Application(jobs[2], Application.Stage.REJECTED),
+        Application(jobs[3], Application.Stage.ACCEPTED),
+        Application(jobs[4], Application.Stage.SENT),
     )
     val chats: List<Chat> = listOf(
         Chat(

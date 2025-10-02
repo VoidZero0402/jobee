@@ -1,13 +1,17 @@
 package com.bluerose.jobee.data.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Application(
     val job: Job,
     val stage: Stage
-) {
+) : Parcelable {
     enum class Stage {
-        Sent,
-        Pending,
-        Rejected,
-        Accepted
+        SENT,
+        PENDING,
+        REJECTED,
+        ACCEPTED
     }
 }
