@@ -57,7 +57,7 @@
 
     <ImageButton
         android:id="@+id/save_action"
-        style="@style/Widget.Button.IconButton.Small"
+        style="@style/Widget.Button.IconButton"
         android:contentDescription="@string/cd_save_job"
         android:src="@drawable/ic_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
