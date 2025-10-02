@@ -44,6 +44,14 @@ class SampleRepository(private val sharedPrefs: SharedPreferences) {
         return sharedPrefs.getStringSet(AppSharedPrefs.Keys.SAVED_JOBS, emptySet()) ?: emptySet()
     }
 
+    private fun getRecommendedJobIds(): Set<String> {
+        return sharedPrefs.getStringSet(AppSharedPrefs.Keys.RECOMMENDED_JOBS, emptySet()) ?: emptySet()
+    }
+
+    private fun getRecommendedJobsUpdateTimestamp(): Long {
+        return sharedPrefs.getLong(AppSharedPrefs.Keys.RECOMMENDED_JOBS_UPDATE_TIMESTAMP, 0L)
+    }
+
     enum class JobSortType {
         DEFAULT,
         TITLE,
@@ -71,6 +79,24 @@ class SampleRepository(private val sharedPrefs: SharedPreferences) {
                 }
             }
             .map { if (savedJobIds.contains(it.id)) it.copy(isSaved = true) else it }
+    }
+
+    fun getRecommendedJobs(count: Int = 8): List<Job> {
+        var recommendedJobIds = getRecommendedJobIds()
+        val recommendedJobsUpdateTimestamp = getRecommendedJobsUpdateTimestamp()
+        val now = System.currentTimeMillis()
+        val twelveHours = 12 * 60 * 60 * 1000
+
+        if (now - recommendedJobsUpdateTimestamp > twelveHours || recommendedJobIds.isEmpty()) {
+            val jobs = SampleDataSource.jobs.shuffled().take(count)
+            recommendedJobIds = jobs.map { it.id }.toSet()
+            sharedPrefs.edit {
+                putStringSet(AppSharedPrefs.Keys.RECOMMENDED_JOBS, recommendedJobIds)
+                putLong(AppSharedPrefs.Keys.RECOMMENDED_JOBS_UPDATE_TIMESTAMP, now)
+            }
+        }
+
+        return SampleDataSource.jobs.filter { recommendedJobIds.contains(it.id) }
     }
 
     fun getSavedJobs(): List<Job> {
