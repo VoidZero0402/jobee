@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.bluerose.jobee.ui.components.ActionBar
+        android:id="@+id/action_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.bluerose.jobee.ui.components.FragmentContainer
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.bluerose.jobee.ui.components.BottomNavigation
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.bluerose.jobee.ui.components.NavItem
+            style="@style/Widget.NavItem.Container"
+            app:activeIcon="@drawable/ic_home_angle_bold"
+            app:icon="@drawable/ic_home_angle"
+            app:text="Home" />
+
+        <com.bluerose.jobee.ui.components.NavItem
+            style="@style/Widget.NavItem.Container"
+            app:activeIcon="@drawable/ic_bookmark_bold"
+            app:icon="@drawable/ic_bookmark"
+            app:text="Saved Jobs" />
+
+        <com.bluerose.jobee.ui.components.NavItem
+            style="@style/Widget.NavItem.Container"
+            app:activeIcon="@drawable/ic_notes_bold"
+            app:icon="@drawable/ic_notes"
+            app:text="Applications" />
+
+        <com.bluerose.jobee.ui.components.NavItem
+            style="@style/Widget.NavItem.Container"
+            app:activeIcon="@drawable/ic_chat_bold"
+            app:icon="@drawable/ic_chat"
+            app:text="Messages" />
+
+        <com.bluerose.jobee.ui.components.NavItem
+            style="@style/Widget.NavItem.Container"
+            app:activeIcon="@drawable/ic_user_bold"
+            app:icon="@drawable/ic_user"
+            app:text="Profile" />
+
+    </com.bluerose.jobee.ui.components.BottomNavigation>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
