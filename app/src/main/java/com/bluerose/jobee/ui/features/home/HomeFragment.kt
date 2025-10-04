@@ -14,6 +14,7 @@ import com.bluerose.jobee.databinding.FragmentHomeBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.components.ChipGroup
+import com.bluerose.jobee.ui.features.notifications.NotificationsFragment
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -76,6 +77,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             adapter = recentJobAdapter
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.content_gap)))
+        }
+
+        binding.notificationAction.setOnClickListener {
+            navigateTo(NotificationsFragment())
         }
     }
 }

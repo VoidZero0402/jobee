@@ -12,6 +12,10 @@
     <string name="text_recent_jobs">Recent Jobs</string>
     <string name="text_all_category">All</string>
 
+    <!-- Tabs -->
+    <string name="tab_general_notifications">General</string>
+    <string name="tab_application_notifications">Applications</string>
+
     <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
     <string name="hint_search_for_job">Search for a job…</string>
