@@ -46,8 +46,8 @@
     </style>
 
     <style name="Widget.Button.IconButton.Base" parent="">
-        <item name="android:layout_width">58dp</item>
-        <item name="android:layout_height">58dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:scaleType">centerInside</item>
     </style>
 
@@ -144,7 +144,7 @@
         <item name="android:minHeight">56dp</item>
         <item name="android:gravity">center|start</item>
         <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingEnd">12dp</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
     </style>

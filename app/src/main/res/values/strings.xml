@@ -6,9 +6,14 @@
     <string name="application_accepted">Application Accepted</string>
     <string name="application_rejected">Application Rejected</string>
     <string name="application_pending">Application Pending</string>
+    <string name="text_welcome_back">Welcome Back 👋</string>
+    <string name="text_recommendation">Recommendation</string>
+    <string name="text_see_all">See All</string>
+    <string name="text_recent_jobs">Recent Jobs</string>
 
     <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
+    <string name="hint_search_for_job">Search for a job…</string>
 
     <!-- Content descriptions -->
     <string name="cd_back_navigation">Back navigation</string>
@@ -18,6 +23,8 @@
     <string name="cd_open_camera">Open camera</string>
     <string name="cd_save_job">Save job</string>
     <string name="cd_unsave_job">Unsave job</string>
+    <string name="cd_avatar">User avatar</string>
+    <string name="cd_see_notifications">See notifications</string>
 
     <!-- Dummies strings -->
     <string name="dummy_notification_title">Security Updates!</string>
@@ -34,6 +41,7 @@
     <string name="dummy_job_company">Apple Inc.</string>
     <string name="dummy_job_location">Chicago, United States</string>
     <string name="dummy_job_salary">$5,000 - $12,000 /month</string>
+    <string name="dummy_username">Olivia Brooks</string>
 
     <!-- Others -->
     <string name="divider_line">|</string>
