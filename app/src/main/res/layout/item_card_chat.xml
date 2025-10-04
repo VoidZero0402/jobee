@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ripple_card_clickable"
@@ -18,42 +17,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:constraint_referenced_ids="company_name,message"
-        app:flow_horizontalAlign="start"
-        app:flow_verticalGap="6dp"
-        app:flow_wrapMode="aligned"
-        app:layout_constraintBottom_toBottomOf="@id/company_logo"
-        app:layout_constraintEnd_toStartOf="@id/time"
-        app:layout_constraintStart_toEndOf="@id/company_logo"
-        app:layout_constraintTop_toTopOf="@id/company_logo"
-        tools:viewBindingIgnore="true" />
-
     <TextView
         android:id="@+id/company_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/dummy_chat_company"
         android:textAppearance="@style/TextAppearance.Heading6"
-        android:textColor="?attr/colorNeutralHighest" />
+        android:textColor="?attr/colorNeutralHighest"
+        app:layout_constraintEnd_toStartOf="@id/unread_message_count"
+        app:layout_constraintStart_toEndOf="@id/company_logo"
+        app:layout_constraintTop_toTopOf="@id/company_logo" />
 
     <TextView
         android:id="@+id/message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/dummy_chat_message"
-        android:textAppearance="@style/TextAppearance.Body.Large"
-        android:textColor="?attr/colorNeutral" />
+        android:textAppearance="@style/TextAppearance.Body.Medium"
+        android:textColor="?attr/colorNeutral"
+        app:layout_constraintEnd_toStartOf="@id/time"
+        app:layout_constraintStart_toStartOf="@id/company_name"
+        app:layout_constraintTop_toBottomOf="@id/company_name" />
 
     <TextView
         android:id="@+id/unread_message_count"
@@ -61,7 +54,7 @@
         android:text="@string/dummy_chat_unread_count"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/flow" />
+        app:layout_constraintTop_toTopOf="@id/company_name" />
 
     <TextView
         android:id="@+id/time"
@@ -70,7 +63,7 @@
         android:text="@string/dummy_chat_time"
         android:textAppearance="@style/TextAppearance.Body.Medium"
         android:textColor="?attr/colorNeutral"
-        app:layout_constraintBottom_toBottomOf="@id/flow"
+        app:layout_constraintBottom_toBottomOf="@id/message"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

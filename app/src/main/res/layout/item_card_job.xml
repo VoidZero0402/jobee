@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ripple_job_card"
@@ -18,42 +17,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="4dp"
-        android:orientation="vertical"
-        app:constraint_referenced_ids="title,company_name"
-        app:flow_horizontalAlign="start"
-        app:flow_verticalGap="6dp"
-        app:flow_wrapMode="aligned"
-        app:layout_constraintBottom_toBottomOf="@id/company_logo"
-        app:layout_constraintEnd_toStartOf="@id/save_action"
-        app:layout_constraintStart_toEndOf="@id/company_logo"
-        app:layout_constraintTop_toTopOf="@id/company_logo"
-        tools:viewBindingIgnore="true" />
-
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/dummy_job_title"
         android:textAppearance="@style/TextAppearance.Heading6"
-        android:textColor="?attr/colorNeutralHighest" />
+        android:textColor="?attr/colorNeutralHighest"
+        app:layout_constraintEnd_toStartOf="@id/save_action"
+        app:layout_constraintStart_toEndOf="@id/company_logo"
+        app:layout_constraintTop_toTopOf="@id/company_logo" />
 
     <TextView
         android:id="@+id/company_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/dummy_job_company"
         android:textAppearance="@style/TextAppearance.Body.Large"
-        android:textColor="?attr/colorNeutral" />
+        android:textColor="?attr/colorNeutral"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
     <ImageButton
         android:id="@+id/save_action"
@@ -61,7 +53,7 @@
         android:contentDescription="@string/cd_save_job"
         android:src="@drawable/ic_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/flow" />
+        app:layout_constraintTop_toTopOf="@id/company_logo" />
 
     <TextView
         android:id="@+id/location"
