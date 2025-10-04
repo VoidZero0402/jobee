@@ -8,7 +8,7 @@ import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseRecyclerViewAdapter<T, VB : ViewBinding>(
-    protected val data: MutableList<T>
+    protected var data: MutableList<T>
 ) : RecyclerView.Adapter<BaseRecyclerViewAdapter<T, VB>.BaseViewHolder>() {
 
     private var inflateMethod: Method? = null

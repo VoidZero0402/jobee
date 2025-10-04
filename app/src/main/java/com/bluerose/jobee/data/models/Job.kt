@@ -12,5 +12,5 @@ data class Job(
     val salaryRange: Pair<Int, Int>,
     val tags: List<String>,
     val createdAt: Long,
-    val isSaved: Boolean = false
+    var isSaved: Boolean = false
 ) : Parcelable

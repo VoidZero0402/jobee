@@ -40,13 +40,17 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         return inflateMethod.invoke(null, layoutInflater) as VB
     }
 
-    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null) {
+    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null, addToBackStack: Boolean = true) {
         fragment.arguments = args
-        supportFragmentManager
+        val transaction = supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null)
-            .commit()
+
+        if (addToBackStack) {
+            transaction.addToBackStack(null)
+        }
+
+        transaction.commit()
     }
 
     open fun onViewCreated() {}

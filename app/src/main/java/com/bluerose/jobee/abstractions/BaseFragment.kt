@@ -50,12 +50,16 @@ open class BaseFragment<VB : ViewBinding> : Fragment() {
         return inflateMethod.invoke(null, inflater, container, false) as VB
     }
 
-    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null) {
+    fun navigateTo(fragment: BaseFragment<*>, args: Bundle? = null, addToBackStack: Boolean = true) {
         fragment.arguments = args
-        parentFragmentManager
+        val transaction = parentFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null)
-            .commit()
+
+        if (addToBackStack) {
+            transaction.addToBackStack(null)
+        }
+
+        transaction.commit()
     }
 }
