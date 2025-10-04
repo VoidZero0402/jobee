@@ -18,15 +18,25 @@ class ChipGroup @JvmOverloads constructor(
         layoutParams = LayoutParams(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
-        )
+        ).apply {
+            startToStart = LayoutParams.PARENT_ID
+            endToEnd = LayoutParams.PARENT_ID
+            topToTop = LayoutParams.PARENT_ID
+        }
         setHorizontalStyle(Flow.CHAIN_PACKED)
         setVerticalStyle(Flow.CHAIN_PACKED)
         setHorizontalBias(0f)
         setVerticalBias(0f)
     }
     private var isSingleSelection = false
+    private val chipItems = arrayListOf<ChipItem>()
     private val chips: ArrayList<Chip> = arrayListOf()
     private var onSelectionChangedListener: ((selectedChips: List<Chip>) -> Unit)? = null
+
+    data class ChipItem(
+        val label: String,
+        val isChecked: Boolean = false
+    )
 
     init {
         addView(flow)
@@ -45,6 +55,22 @@ class ChipGroup @JvmOverloads constructor(
         flow.referencedIds = referencedIds
     }
 
+    private fun setupChips() {
+        chipItems.forEach {
+            val chip = Chip(context).apply {
+                id = generateViewId()
+                text = it.label
+                isChecked = it.isChecked
+                setOnCheckedChangedListener { checked ->
+                    handleSelection(this.id, checked)
+                }
+            }
+            addView(chip)
+            chips.add(chip)
+        }
+        updateFlowReferences()
+    }
+
     private fun handleSelection(chipId: Int, isChecked: Boolean) {
         if (isSingleSelection && isChecked) {
             chips.find { it.id != chipId && it.isChecked }?.toggle()
@@ -54,6 +80,11 @@ class ChipGroup @JvmOverloads constructor(
 
     private fun getSelectedChips(): List<Chip> {
         return chips.filter { it.isChecked }
+    }
+
+    fun setChips(vararg items: ChipItem) {
+        this.chipItems.addAll(items)
+        setupChips()
     }
 
     fun setOnSelectionChangedListener(l: (selectedChips: List<Chip>) -> Unit) {
