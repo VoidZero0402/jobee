@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:fillViewport="true"
-    android:padding="16dp">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/avatar_image"
@@ -88,7 +88,12 @@
             android:id="@+id/recommendation_recycler"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="-16dp"
             android:layout_marginTop="@dimen/section_gap"
+            android:layout_marginEnd="-16dp"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recommendation_text" />
@@ -116,14 +121,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/recent_text" />
 
-        <com.bluerose.jobee.ui.components.ChipGroup
-            android:id="@+id/recent_chip_group"
+        <HorizontalScrollView
+            android:id="@+id/recent_chip_group_wrapper"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="-16dp"
             android:layout_marginTop="@dimen/section_gap"
+            android:layout_marginEnd="-16dp"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recent_text" />
+            app:layout_constraintTop_toBottomOf="@id/recent_text"
+            tools:viewBindingIgnore="true">
+
+            <com.bluerose.jobee.ui.components.ChipGroup
+                android:id="@+id/recent_chip_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true" />
+
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recent_recycler"
@@ -132,7 +152,7 @@
             android:layout_marginTop="@dimen/section_gap"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recent_chip_group" />
+            app:layout_constraintTop_toBottomOf="@id/recent_chip_group_wrapper" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

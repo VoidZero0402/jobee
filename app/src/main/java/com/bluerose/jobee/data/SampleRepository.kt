@@ -82,6 +82,7 @@ class SampleRepository(private val sharedPrefs: SharedPreferences) {
     }
 
     fun getRecommendedJobs(count: Int = 8): List<Job> {
+        val savedJobIds = getSavedJobIds()
         var recommendedJobIds = getRecommendedJobIds()
         val recommendedJobsUpdateTimestamp = getRecommendedJobsUpdateTimestamp()
         val now = System.currentTimeMillis()
@@ -96,7 +97,9 @@ class SampleRepository(private val sharedPrefs: SharedPreferences) {
             }
         }
 
-        return SampleDataSource.jobs.filter { recommendedJobIds.contains(it.id) }
+        return SampleDataSource.jobs
+            .filter { recommendedJobIds.contains(it.id) }
+            .map { if (savedJobIds.contains(it.id)) it.copy(isSaved = true) else it }
     }
 
     fun getSavedJobs(): List<Job> {
