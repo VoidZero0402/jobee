@@ -43,6 +43,9 @@
     <string name="dummy_job_salary">$5,000 - $12,000 /month</string>
     <string name="dummy_username">Olivia Brooks</string>
 
+    <!-- Format -->
+    <string name="job_salary_format">$%1$d - $%2$d /year</string>
+
     <!-- Others -->
     <string name="divider_line">|</string>
 </resources>
