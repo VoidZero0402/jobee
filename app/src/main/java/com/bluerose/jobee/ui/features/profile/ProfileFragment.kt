@@ -10,6 +10,7 @@ import com.bluerose.jobee.abstractions.LayoutState
 import com.bluerose.jobee.databinding.FragmentProfileBinding
 import com.bluerose.jobee.ui.components.ActionBar
 import com.bluerose.jobee.ui.constants.NavItemPositions
+import com.bluerose.jobee.ui.features.settings.SettingsFragment
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     override val layoutState = LayoutState(
@@ -20,9 +21,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 actions = listOf(
                     ActionBar.Action(
                         ContextCompat.getDrawable(requireContext(), R.drawable.ic_settings),
-                        resources.getString(R.string.cd_settings),
-                        null
-                    )
+                        resources.getString(R.string.cd_settings)
+                    ) {
+                        navigateTo(SettingsFragment())
+                    }
                 )
             )
         },

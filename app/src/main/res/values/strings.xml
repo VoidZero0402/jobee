@@ -11,6 +11,7 @@
     <string name="text_see_all">See All</string>
     <string name="text_recent_jobs">Recent Jobs</string>
     <string name="text_all_category">All</string>
+    <string name="text_english_us">English (US)</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
@@ -18,6 +19,7 @@
     <string name="action_bar_applications">Applications</string>
     <string name="action_bar_messages">Messages</string>
     <string name="action_bar_profile">Profile</string>
+    <string name="action_bar_settings">Settings</string>
 
     <!-- Tabs -->
     <string name="tab_general_notifications">General</string>
