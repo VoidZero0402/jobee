@@ -22,8 +22,6 @@ class ApplicationsFragment : BaseFragment<FragmentApplicationsBinding>() {
         lazy {
             ActionBar.Config(
                 title = resources.getString(R.string.action_bar_applications),
-                isNavigationActionVisible = false,
-                logo = ContextCompat.getDrawable(requireContext(), R.drawable.logo_jobee),
                 actions = listOf(
                     ActionBar.Action(
                         ContextCompat.getDrawable(requireContext(), R.drawable.ic_magnifier),

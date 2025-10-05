@@ -17,14 +17,25 @@
     <string name="action_bar_saved_jobs">Saved Jobs</string>
     <string name="action_bar_applications">Applications</string>
     <string name="action_bar_messages">Messages</string>
+    <string name="action_bar_profile">Profile</string>
 
     <!-- Tabs -->
     <string name="tab_general_notifications">General</string>
     <string name="tab_application_notifications">Applications</string>
 
+    <!-- Buttons -->
+    <string name="btn_save_profile">Save Profile</string>
+
     <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
     <string name="hint_search_for_job">Search for a job…</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="hint_email">Enter your email address</string>
+
+    <!-- Labels -->
+    <string name="label_username">Your Username</string>
+    <string name="label_email">Your Email Address</string>
+
 
     <!-- Content descriptions -->
     <string name="cd_back_navigation">Back navigation</string>
@@ -37,6 +48,7 @@
     <string name="cd_avatar">User avatar</string>
     <string name="cd_see_notifications">See notifications</string>
     <string name="cd_search">Search</string>
+    <string name="cd_settings">Settings</string>
 
     <!-- Dummies strings -->
     <string name="dummy_notification_title">Security Updates!</string>
@@ -54,6 +66,7 @@
     <string name="dummy_job_location">Chicago, United States</string>
     <string name="dummy_job_salary">$5,000 - $12,000 /month</string>
     <string name="dummy_username">Olivia Brooks</string>
+    <string name="dummy_email">olivia.brooks@gmail.com</string>
 
     <!-- Format -->
     <string name="job_salary_format">$%1$d - $%2$d /year</string>
