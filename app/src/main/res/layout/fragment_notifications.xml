@@ -15,7 +15,6 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/notifications_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/section_gap" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
