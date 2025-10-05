@@ -4,10 +4,21 @@ import com.bluerose.jobee.abstractions.BaseActivity
 import com.bluerose.jobee.abstractions.BaseFragment
 import com.bluerose.jobee.abstractions.LayoutState
 import com.bluerose.jobee.databinding.ActivityMainBinding
+import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.home.HomeFragment
+import com.bluerose.jobee.ui.features.savedjobs.SavedJobsFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onViewCreated() {
+        binding.bottomNavigation.setOnNavItemSelectedListener { _, position ->
+            val fragment = when (position) {
+                NavItemPositions.HOME -> HomeFragment()
+                NavItemPositions.SAVED_JOBS -> SavedJobsFragment()
+                else -> HomeFragment()
+            }
+            navigateTo(fragment)
+        }
+
         navigateTo(HomeFragment(), addToBackStack = false)
     }
 
