@@ -50,14 +50,10 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
             transaction.addToBackStack(null)
         }
 
-        onNavigate(fragment)
-
         transaction.commit()
     }
 
     open fun onViewCreated() {}
 
     open fun onLayoutStateChanged(state: LayoutState) {}
-
-    open fun onNavigate(fragment: BaseFragment<*>) {}
 }

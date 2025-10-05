@@ -3,6 +3,7 @@ package com.bluerose.jobee
 import com.bluerose.jobee.abstractions.BaseActivity
 import com.bluerose.jobee.abstractions.BaseFragment
 import com.bluerose.jobee.abstractions.LayoutState
+import com.bluerose.jobee.abstractions.doOnAttach
 import com.bluerose.jobee.databinding.ActivityMainBinding
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.applications.ApplicationsFragment
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             navigateTo(fragment)
         }
 
-        navigateTo(HomeFragment(), addToBackStack = false)
+        navigateTo(HomeFragment().doOnAttach(supportFragmentManager) { applyInitialLayout(it) }, addToBackStack = false)
     }
 
     override fun onLayoutStateChanged(state: LayoutState) {
@@ -50,7 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
-    override fun onNavigate(fragment: BaseFragment<*>) {
+    private fun applyInitialLayout(fragment: BaseFragment<*>) {
         if (fragment.layoutState.layoutMode.hasActionBar) binding.actionBar.show() else binding.actionBar.hide()
         if (fragment.layoutState.layoutMode.hasBottomNavigation) binding.bottomNavigation.show() else binding.bottomNavigation.hide()
     }
