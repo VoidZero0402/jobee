@@ -14,6 +14,6 @@ enum class LayoutMode {
 
 data class LayoutState(
     val layoutMode: LayoutMode = LayoutMode.FULL_SCREEN,
-    val actionBarConfig: ActionBar.Config = ActionBar.Config(),
+    val actionBarConfig: Lazy<ActionBar.Config> = lazy { ActionBar.Config() },
     val selectedNavItemPosition: Int = -1
 )

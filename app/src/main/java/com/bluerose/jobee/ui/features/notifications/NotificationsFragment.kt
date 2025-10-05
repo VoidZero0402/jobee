@@ -14,7 +14,7 @@ import com.bluerose.jobee.ui.components.ActionBar
 class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
     override val layoutState = LayoutState(
         LayoutMode.ACTION_BAR,
-        ActionBar.Config("Notifications")
+        lazy { ActionBar.Config(resources.getString(R.string.action_bar_notifications)) }
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

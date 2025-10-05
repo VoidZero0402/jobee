@@ -12,6 +12,10 @@
     <string name="text_recent_jobs">Recent Jobs</string>
     <string name="text_all_category">All</string>
 
+    <!-- ActionBar -->
+    <string name="action_bar_notifications">Notifications</string>
+    <string name="action_bar_saved_jobs">Saved Jobs</string>
+
     <!-- Tabs -->
     <string name="tab_general_notifications">General</string>
     <string name="tab_application_notifications">Applications</string>

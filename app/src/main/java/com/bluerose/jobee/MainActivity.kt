@@ -17,7 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         with(binding.actionBar) {
             if (state.layoutMode.hasActionBar) {
                 showAnimated()
-                applyConfig(state.actionBarConfig)
+                applyConfig(state.actionBarConfig.value)
             } else {
                 hideAnimated()
             }

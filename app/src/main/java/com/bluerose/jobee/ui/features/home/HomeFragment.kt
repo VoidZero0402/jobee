@@ -14,6 +14,7 @@ import com.bluerose.jobee.databinding.FragmentHomeBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.components.ChipGroup
+import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.notifications.NotificationsFragment
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-    override val layoutState = LayoutState(LayoutMode.BOTTOM_NAV)
+    override val layoutState = LayoutState(
+        LayoutMode.BOTTOM_NAV,
+        selectedNavItemPosition = NavItemPositions.HOME
+    )
     private lateinit var recentJobAdapter: JobAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
