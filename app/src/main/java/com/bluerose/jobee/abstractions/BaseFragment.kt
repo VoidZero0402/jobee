@@ -1,5 +1,6 @@
 package com.bluerose.jobee.abstractions
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import java.lang.reflect.ParameterizedType
 open class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: VB? = null
     protected val binding get() = _binding!!
+    protected val isSystemDarkMode: Boolean
+        get() = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 
     open val layoutState = LayoutState()
 
