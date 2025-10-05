@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dummy_chat_time"
-        android:textAppearance="@style/TextAppearance.Body.Medium"
+        android:textAppearance="@style/TextAppearance.Body.Small"
         android:textColor="?attr/colorNeutral"
         app:layout_constraintBottom_toBottomOf="@id/message"
         app:layout_constraintEnd_toEndOf="parent" />

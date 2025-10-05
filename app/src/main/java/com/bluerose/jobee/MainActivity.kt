@@ -7,6 +7,7 @@ import com.bluerose.jobee.databinding.ActivityMainBinding
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.applications.ApplicationsFragment
 import com.bluerose.jobee.ui.features.home.HomeFragment
+import com.bluerose.jobee.ui.features.messages.MessagesFragment
 import com.bluerose.jobee.ui.features.savedjobs.SavedJobsFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -16,6 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 NavItemPositions.HOME -> HomeFragment()
                 NavItemPositions.SAVED_JOBS -> SavedJobsFragment()
                 NavItemPositions.APPLICATIONS -> ApplicationsFragment()
+                NavItemPositions.MESSAGES -> MessagesFragment()
                 else -> HomeFragment()
             }
             navigateTo(fragment)

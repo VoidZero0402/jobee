@@ -23,7 +23,14 @@ class ApplicationsFragment : BaseFragment<FragmentApplicationsBinding>() {
             ActionBar.Config(
                 title = resources.getString(R.string.action_bar_applications),
                 isNavigationActionVisible = false,
-                logo = ContextCompat.getDrawable(requireContext(), R.drawable.logo_jobee)
+                logo = ContextCompat.getDrawable(requireContext(), R.drawable.logo_jobee),
+                actions = listOf(
+                    ActionBar.Action(
+                        ContextCompat.getDrawable(requireContext(), R.drawable.ic_magnifier),
+                        resources.getString(R.string.cd_search),
+                        null
+                    )
+                )
             )
         },
         NavItemPositions.APPLICATIONS

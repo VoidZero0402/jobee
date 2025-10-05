@@ -16,6 +16,7 @@
     <string name="action_bar_notifications">Notifications</string>
     <string name="action_bar_saved_jobs">Saved Jobs</string>
     <string name="action_bar_applications">Applications</string>
+    <string name="action_bar_messages">Messages</string>
 
     <!-- Tabs -->
     <string name="tab_general_notifications">General</string>
@@ -35,6 +36,7 @@
     <string name="cd_unsave_job">Unsave job</string>
     <string name="cd_avatar">User avatar</string>
     <string name="cd_see_notifications">See notifications</string>
+    <string name="cd_search">Search</string>
 
     <!-- Dummies strings -->
     <string name="dummy_notification_title">Security Updates!</string>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="section_gap">24dp</dimen>
     <dimen name="content_gap">16dp</dimen>
+    <dimen name="content_gap_sm">4dp</dimen>
 </resources>
