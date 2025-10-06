@@ -12,6 +12,9 @@
     <string name="text_recent_jobs">Recent Jobs</string>
     <string name="text_all_category">All</string>
     <string name="text_english_us">English (US)</string>
+    <string name="text_sign_in_title">Welcome to Jobee!</string>
+    <string name="text_sign_in_caption">Welcome to Jobee! Let’s find your next job</string>
+    <string name="text_sign_in">Sign in</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
