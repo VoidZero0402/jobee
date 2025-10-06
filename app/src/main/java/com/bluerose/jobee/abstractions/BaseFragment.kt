@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.transition.Fade
 import androidx.viewbinding.ViewBinding
 import com.bluerose.jobee.R
-import com.bluerose.jobee.ui.utils.AnimationDuration
 import java.lang.reflect.ParameterizedType
 
 open class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -21,9 +19,6 @@ open class BaseFragment<VB : ViewBinding> : Fragment() {
     open val layoutState = LayoutState()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        enterTransition = Fade().apply {
-            duration = AnimationDuration.MEDIUM.duration.toLong()
-        }
         _binding = inflateBinding(inflater, container)
         return binding.root
     }

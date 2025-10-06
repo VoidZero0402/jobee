@@ -8,7 +8,6 @@ import androidx.core.view.updateLayoutParams
 import com.bluerose.jobee.R
 import com.bluerose.jobee.abstractions.LayoutMode
 import com.bluerose.jobee.ui.utils.applySystemInsets
-import com.bluerose.jobee.ui.utils.setPaddingTop
 
 class FragmentContainer @JvmOverloads constructor(
     context: Context,
@@ -16,12 +15,20 @@ class FragmentContainer @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private var initialPaddingTop = 0
+    private var initialPaddingBottom = 0
     private var shouldApplyTopInset = true
+    private var shouldApplyBottomInset = true
 
     init {
         initialPaddingTop = paddingTop
+        initialPaddingBottom = paddingBottom
         applySystemInsets {
-            setPaddingTop(if (shouldApplyTopInset) initialPaddingTop + it.top else initialPaddingTop)
+            setPadding(
+                paddingStart,
+                if (shouldApplyTopInset) initialPaddingTop + it.top else initialPaddingTop,
+                paddingEnd,
+                if (shouldApplyBottomInset) initialPaddingBottom + it.bottom else initialPaddingBottom
+            )
         }
     }
 
@@ -34,6 +41,7 @@ class FragmentContainer @JvmOverloads constructor(
 
     fun applyLayoutMode(layoutMode: LayoutMode) {
         shouldApplyTopInset = layoutMode == LayoutMode.FULL_SCREEN || layoutMode == LayoutMode.BOTTOM_NAV
+        shouldApplyBottomInset = layoutMode == LayoutMode.FULL_SCREEN || layoutMode == LayoutMode.ACTION_BAR
 
         val constraints = when (layoutMode) {
             LayoutMode.FULL_SCREEN -> LayoutConstraints(
