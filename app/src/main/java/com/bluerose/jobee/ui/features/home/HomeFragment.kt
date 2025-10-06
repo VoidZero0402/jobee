@@ -31,6 +31,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.usernameText.text = Singletons.repository.getUser().username
+
         val onJobActionListener = object : JobAdapter.OnJobActionListener {
             override fun onJobClick(job: Job) {}
 

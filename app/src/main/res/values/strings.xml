@@ -41,6 +41,8 @@
     <string name="label_username">Your Username</string>
     <string name="label_email">Your Email Address</string>
 
+    <!-- Messages -->
+    <string name="message_profile_saved">Profile saved successfully</string>
 
     <!-- Content descriptions -->
     <string name="cd_back_navigation">Back navigation</string>

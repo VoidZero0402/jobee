@@ -9,6 +9,7 @@ import com.bluerose.jobee.abstractions.LayoutState
 import com.bluerose.jobee.databinding.FragmentSettingsBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.components.ActionBar
+import com.bluerose.jobee.ui.features.auth.SignInFragment
 import com.bluerose.jobee.ui.theme.ThemeManager
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
@@ -33,6 +34,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
         binding.logoutListItem.setOnClickListener {
             Singletons.repository.signOutUser()
+            navigateTo(SignInFragment())
         }
     }
 }
