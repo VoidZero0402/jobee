@@ -5,8 +5,10 @@ import com.bluerose.jobee.abstractions.BaseFragment
 import com.bluerose.jobee.abstractions.LayoutState
 import com.bluerose.jobee.abstractions.doOnAttach
 import com.bluerose.jobee.databinding.ActivityMainBinding
+import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.applications.ApplicationsFragment
+import com.bluerose.jobee.ui.features.auth.SignInFragment
 import com.bluerose.jobee.ui.features.home.HomeFragment
 import com.bluerose.jobee.ui.features.messages.MessagesFragment
 import com.bluerose.jobee.ui.features.profile.ProfileFragment
@@ -14,6 +16,9 @@ import com.bluerose.jobee.ui.features.savedjobs.SavedJobsFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onViewCreated() {
+        val destination = if (Singletons.repository.isUserAuthorized()) HomeFragment() else SignInFragment()
+        navigateTo(destination.doOnAttach(supportFragmentManager) { applyInitialLayout(it) }, addToBackStack = false)
+
         binding.bottomNavigation.setOnNavItemSelectedListener { _, position ->
             val fragment = when (position) {
                 NavItemPositions.HOME -> HomeFragment()
@@ -26,7 +31,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             navigateTo(fragment)
         }
 
-        navigateTo(HomeFragment().doOnAttach(supportFragmentManager) { applyInitialLayout(it) }, addToBackStack = false)
     }
 
     override fun onLayoutStateChanged(state: LayoutState) {
