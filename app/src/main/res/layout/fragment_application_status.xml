@@ -6,9 +6,8 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <include
+    <com.bluerose.jobee.ui.components.JobDetails
         android:id="@+id/job"
-        layout="@layout/layout_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
