@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <com.bluerose.jobee.ui.components.JobDetails
-        android:id="@+id/job"
+        android:id="@+id/job_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

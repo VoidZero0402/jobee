@@ -2,6 +2,9 @@ package com.bluerose.jobee.ui.utils
 
 import android.content.Context
 import android.content.ContextWrapper
+import android.os.Build
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.TypedValue
 import android.view.View
 import androidx.activity.ComponentActivity
@@ -62,4 +65,13 @@ fun View.setPaddingTop(padding: Int) {
 
 fun View.setPaddingBottom(padding: Int) {
     setPadding(paddingStart, paddingTop, paddingEnd, padding)
+}
+
+@Suppress("DEPRECATION")
+inline fun <reified T : Parcelable> Bundle.parcelable(key: String): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getParcelable(key, T::class.java)
+    } else {
+        getParcelable(key) as? T
+    }
 }

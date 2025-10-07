@@ -24,6 +24,7 @@
     <string name="action_bar_messages">Messages</string>
     <string name="action_bar_profile">Profile</string>
     <string name="action_bar_settings">Settings</string>
+    <string name="action_bar_application_status">Application Stage</string>
 
     <!-- Tabs -->
     <string name="tab_general_notifications">General</string>
@@ -79,7 +80,7 @@
 
     <!-- Format -->
     <string name="job_salary_format">$%1$d - $%2$d /year</string>
-    <string name="job_pasted_at_format">Posted at $%1s</string>
+    <string name="job_pasted_at_format">Posted at %1s</string>
 
     <!-- Others -->
     <string name="divider_line">|</string>

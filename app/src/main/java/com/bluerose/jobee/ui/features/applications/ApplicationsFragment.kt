@@ -13,6 +13,7 @@ import com.bluerose.jobee.databinding.FragmentApplicationsBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.ApplicationAdapter
 import com.bluerose.jobee.ui.components.ActionBar
+import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.utils.DrawableItemDecoration
 
@@ -38,7 +39,11 @@ class ApplicationsFragment : BaseFragment<FragmentApplicationsBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val onApplicationActionListener = object : ApplicationAdapter.OnApplicationActionListener {
-            override fun onApplicationClick(application: Application) {}
+            override fun onApplicationClick(application: Application) {
+                val bundle = Bundle()
+                bundle.putParcelable(BundleKeys.APPLICATION, application)
+                navigateTo(ApplicationStatusFragment(), bundle)
+            }
         }
 
         binding.applicationsRecycler.apply {
