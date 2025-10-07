@@ -15,6 +15,7 @@
     <string name="text_sign_in_title">Welcome to Jobee!</string>
     <string name="text_sign_in_caption">Welcome to Jobee! Let’s find your next job</string>
     <string name="text_sign_in">Sign in</string>
+    <string name="text_application_status">Your Application Status</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
@@ -72,11 +73,13 @@
     <string name="dummy_job_company">Apple Inc.</string>
     <string name="dummy_job_location">Chicago, United States</string>
     <string name="dummy_job_salary">$5,000 - $12,000 /month</string>
+    <string name="dummy_job_posted_at">Posted at 20 Dec, 2022 – 20:49 PM</string>
     <string name="dummy_username">Olivia Brooks</string>
     <string name="dummy_email">olivia.brooks@gmail.com</string>
 
     <!-- Format -->
     <string name="job_salary_format">$%1$d - $%2$d /year</string>
+    <string name="job_pasted_at_format">Posted at $%1s</string>
 
     <!-- Others -->
     <string name="divider_line">|</string>

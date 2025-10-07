@@ -14,7 +14,7 @@ class GeneralNotificationsFragment : BaseFragment<FragmentGeneralNotificationsVp
         binding.generalNotificationsRecycler.apply {
             adapter = NotificationAdapter(Singletons.repository.getNotifications().toMutableList())
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.content_gap)))
+            addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.content_gap_sm)))
         }
     }
 }
