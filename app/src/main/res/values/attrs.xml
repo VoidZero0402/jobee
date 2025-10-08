@@ -36,5 +36,4 @@
     <attr name="iconButtonStyle" format="reference" />
     <attr name="actionBarContainerStyle" format="reference" />
     <attr name="tagStyle" format="reference" />
-    <attr name="jobDetailsContainerStyle" format="reference" />
 </resources>

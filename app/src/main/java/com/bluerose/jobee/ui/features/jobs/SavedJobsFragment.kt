@@ -1,4 +1,4 @@
-package com.bluerose.jobee.ui.features.savedjobs
+package com.bluerose.jobee.ui.features.jobs
 
 import android.os.Bundle
 import android.view.View
@@ -13,6 +13,7 @@ import com.bluerose.jobee.databinding.FragmentSavedJobsBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.components.ActionBar
+import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
 
@@ -39,7 +40,11 @@ class SavedJobsFragment : BaseFragment<FragmentSavedJobsBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val onJobActionListener = object : JobAdapter.OnJobActionListener {
-            override fun onJobClick(job: Job) {}
+            override fun onJobClick(job: Job) {
+                val bundle = Bundle()
+                bundle.putParcelable(BundleKeys.JOB, job)
+                navigateTo(JobDetailsFragment(), bundle)
+            }
 
             override fun onJobSaved(job: Job) {
                 Singletons.repository.saveJob(job.id)

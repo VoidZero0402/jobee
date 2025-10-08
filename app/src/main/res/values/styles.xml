@@ -267,9 +267,4 @@
         <item name="android:gravity">center|start</item>
         <item name="android:background">?attr/colorSurface</item>
     </style>
-
-    <!-- JobDetails widget style -->
-    <style name="Widget.JobDetails.Container" parent="">
-        <item name="android:padding">16dp</item>
-    </style>
 </resources>

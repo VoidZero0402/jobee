@@ -9,8 +9,6 @@ import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import com.bluerose.jobee.R
 import com.bluerose.jobee.databinding.LayoutActionBarBinding
@@ -64,7 +62,7 @@ class ActionBar @JvmOverloads constructor(
         setupView()
         setupListeners()
     }
-    
+
     private fun setupView() {
         binding.title.text = _title
     }
@@ -190,7 +188,7 @@ class ActionBar @JvmOverloads constructor(
         binding.actionsContainer.removeAllViews()
         actions.forEach {
             binding.actionsContainer.addView(ImageButton(context, null, R.attr.iconButtonStyle).apply {
-                layoutParams = LayoutParams(48.dp, 48.dp)
+                layoutParams = LayoutParams(40.dp, 40.dp)
                 setImageDrawable(it.icon)
                 contentDescription = it.contentDescription
                 setOnClickListener(it.onClick)

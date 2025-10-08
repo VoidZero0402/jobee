@@ -16,7 +16,7 @@ import java.util.Locale
 class JobDetails @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.jobDetailsContainerStyle
+    defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     private val binding = WidgetJobDetailsBinding.inflate(LayoutInflater.from(context), this)
 

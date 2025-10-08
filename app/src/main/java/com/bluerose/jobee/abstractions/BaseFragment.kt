@@ -13,6 +13,10 @@ import java.lang.reflect.ParameterizedType
 open class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: VB? = null
     protected val binding get() = _binding!!
+
+    protected val supportActionBar
+        get() = (activity as? BaseActivity<*>)?.getLayoutActionBar()
+
     protected val isSystemDarkMode: Boolean
         get() = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 

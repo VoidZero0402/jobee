@@ -61,8 +61,9 @@ class JobAdapter(
         binding.saveAction.apply {
             setImageResource(R.drawable.ic_bookmark_bold)
             imageTintList = ColorStateList.valueOf(
-                binding.root.context.getThemeColor(R.attr.colorPrimary)
+                context.getThemeColor(R.attr.colorPrimary)
             )
+            contentDescription = resources.getString(R.string.cd_unsave_job)
         }
     }
 
@@ -70,8 +71,9 @@ class JobAdapter(
         binding.saveAction.apply {
             setImageResource(R.drawable.ic_bookmark)
             imageTintList = ColorStateList.valueOf(
-                binding.root.context.getThemeColor(R.attr.colorNeutralHighest)
+                context.getThemeColor(R.attr.colorPrimary)
             )
+            contentDescription = resources.getString(R.string.cd_save_job)
         }
     }
 

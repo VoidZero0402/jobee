@@ -6,13 +6,14 @@ import com.bluerose.jobee.abstractions.LayoutState
 import com.bluerose.jobee.abstractions.doOnAttach
 import com.bluerose.jobee.databinding.ActivityMainBinding
 import com.bluerose.jobee.di.Singletons
+import com.bluerose.jobee.ui.components.ActionBar
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.applications.ApplicationsFragment
 import com.bluerose.jobee.ui.features.auth.SignInFragment
 import com.bluerose.jobee.ui.features.home.HomeFragment
+import com.bluerose.jobee.ui.features.jobs.SavedJobsFragment
 import com.bluerose.jobee.ui.features.messages.MessagesFragment
 import com.bluerose.jobee.ui.features.profile.ProfileFragment
-import com.bluerose.jobee.ui.features.savedjobs.SavedJobsFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onViewCreated() {
@@ -53,6 +54,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 hideAnimated()
             }
         }
+    }
+
+    override fun getLayoutActionBar(): ActionBar {
+        return binding.actionBar
     }
 
     private fun applyInitialLayout(fragment: BaseFragment<*>) {

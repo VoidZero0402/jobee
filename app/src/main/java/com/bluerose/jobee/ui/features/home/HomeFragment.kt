@@ -14,7 +14,9 @@ import com.bluerose.jobee.databinding.FragmentHomeBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.components.ChipGroup
+import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
+import com.bluerose.jobee.ui.features.jobs.JobDetailsFragment
 import com.bluerose.jobee.ui.features.notifications.NotificationsFragment
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +36,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.usernameText.text = Singletons.repository.getUser().username
 
         val onJobActionListener = object : JobAdapter.OnJobActionListener {
-            override fun onJobClick(job: Job) {}
+            override fun onJobClick(job: Job) {
+                val bundle = Bundle()
+                bundle.putParcelable(BundleKeys.JOB, job)
+                navigateTo(JobDetailsFragment(), bundle)
+            }
 
             override fun onJobSaved(job: Job) {
                 Singletons.repository.saveJob(job.id)
