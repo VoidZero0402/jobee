@@ -14,8 +14,8 @@
     <string name="text_english_us">English (US)</string>
     <string name="text_sign_in_title">Welcome to Jobee!</string>
     <string name="text_sign_in_caption">Welcome to Jobee! Let’s find your next job</string>
-    <string name="text_sign_in">Sign in</string>
     <string name="text_application_status">Your Application Status</string>
+    <string name="text_job_description">Job Description</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
@@ -32,6 +32,8 @@
 
     <!-- Buttons -->
     <string name="btn_save_profile">Save Profile</string>
+    <string name="btn_sign_in">Sign in</string>
+    <string name="btn_apply_job">Apply Job</string>
 
     <!-- Hints -->
     <string name="hint_chat_form">Type a message…</string>
@@ -78,6 +80,7 @@
     <string name="dummy_job_posted_at">Posted at 20 Dec, 2022 – 20:49 PM</string>
     <string name="dummy_username">Olivia Brooks</string>
     <string name="dummy_email">olivia.brooks@gmail.com</string>
+    <string name="dummy_job_description">We are looking for a motivated and friendly Customer Support Specialist to join our team. You will be responsible for assisting users, answering questions, and ensuring they have the best experience using Jobee.</string>
 
     <!-- Format -->
     <string name="job_salary_format">$%1$d - $%2$d /year</string>
