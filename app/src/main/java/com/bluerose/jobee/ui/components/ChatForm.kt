@@ -24,6 +24,8 @@ class ChatForm @JvmOverloads constructor(
     private var onVoiceRecordActionClicked: OnActionClickListener = null
     private var onSendActionClicked: OnActionClickListener = null
 
+    val editText get() = binding.messageTextField
+
     data class FloatActionStateConfig(
         val icon: Drawable?,
         val contentDescription: String

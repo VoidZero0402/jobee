@@ -12,6 +12,7 @@ import com.bluerose.jobee.data.models.Chat
 import com.bluerose.jobee.databinding.FragmentMessagesBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.components.ActionBar
+import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
 
@@ -37,7 +38,11 @@ class MessagesFragment : BaseFragment<FragmentMessagesBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val onChatActionListener = object : ChatAdapter.OnChatActionListener {
-            override fun onChatClick(chat: Chat) {}
+            override fun onChatClick(chat: Chat) {
+                val bundle = Bundle()
+                bundle.putParcelable(BundleKeys.CHAT, chat)
+                navigateTo(ChatFragment(), bundle)
+            }
         }
 
         binding.chatsRecycler.apply {

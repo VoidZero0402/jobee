@@ -16,6 +16,8 @@
     <string name="text_sign_in_caption">Welcome to Jobee! Let’s find your next job</string>
     <string name="text_application_status">Your Application Status</string>
     <string name="text_job_description">Job Description</string>
+    <string name="text_welcome_chat_title">Welcome to Jobee Chat</string>
+    <string name="text_welcome_chat_description">we’re here to help you find your next opportunity!</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
@@ -61,6 +63,8 @@
     <string name="cd_search">Search</string>
     <string name="cd_settings">Settings</string>
     <string name="cd_share">Share</string>
+    <string name="cd_call">Call</string>
+    <string name="cd_video_call">Video call</string>
 
     <!-- Dummies strings -->
     <string name="dummy_notification_title">Security Updates!</string>

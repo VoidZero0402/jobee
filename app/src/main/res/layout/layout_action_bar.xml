@@ -2,6 +2,14 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageButton
+        android:id="@+id/navigation_action"
+        style="@style/Widget.Button.IconButton"
+        android:contentDescription="@string/cd_back_navigation"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/logo_container"
         android:layout_width="40dp"
@@ -16,15 +24,6 @@
             android:contentDescription="@null" />
 
     </FrameLayout>
-
-
-    <ImageButton
-        android:id="@+id/navigation_action"
-        style="@style/Widget.Button.IconButton"
-        android:contentDescription="@string/cd_back_navigation"
-        android:src="@drawable/ic_arrow_left"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
