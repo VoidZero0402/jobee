@@ -3,6 +3,9 @@ package com.bluerose.jobee.ui.features.messages
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsAnimationCompat
+import androidx.core.view.WindowInsetsCompat
 import com.bluerose.jobee.R
 import com.bluerose.jobee.abstractions.BaseFragment
 import com.bluerose.jobee.abstractions.LayoutMode
@@ -13,6 +16,7 @@ import com.bluerose.jobee.ui.components.ActionBar
 import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.features.home.HomeFragment
 import com.bluerose.jobee.ui.utils.parcelable
+import com.bluerose.jobee.ui.utils.setPaddingBottom
 
 class ChatFragment : BaseFragment<FragmentChatBinding>() {
     override val layoutState = LayoutState(
@@ -48,5 +52,20 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
         } else {
             navigateTo(HomeFragment())
         }
+
+        ViewCompat.setWindowInsetsAnimationCallback(
+            binding.root,
+            object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
+                override fun onProgress(
+                    insets: WindowInsetsCompat,
+                    runningAnimations: MutableList<WindowInsetsAnimationCompat>
+                ): WindowInsetsCompat {
+                    val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+                    val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                    binding.chatForm.setPaddingBottom(imeInsets.bottom - systemBars.bottom)
+                    return insets
+                }
+            }
+        )
     }
 }

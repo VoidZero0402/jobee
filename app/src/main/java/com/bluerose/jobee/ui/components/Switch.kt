@@ -138,8 +138,10 @@ class Switch @JvmOverloads constructor(
     }
 
     override fun setChecked(checked: Boolean) {
-        isCheckedState = checked
-        applyState()
+        if (isCheckedState != checked) {
+            isCheckedState = checked
+            applyState()
+        }
     }
 
     override fun isChecked(): Boolean = isCheckedState

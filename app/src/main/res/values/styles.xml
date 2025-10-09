@@ -95,8 +95,8 @@
     </style>
 
     <style name="Widget.Tag.Secondary.Circle" parent="">
-        <item name="android:layout_width">20dp</item>
-        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/shape_tag_secondary_circle</item>
         <item name="android:textAppearance">@style/TextAppearance.Body.XSmall.Semibold</item>
