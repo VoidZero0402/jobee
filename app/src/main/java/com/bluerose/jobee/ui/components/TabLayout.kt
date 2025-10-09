@@ -103,28 +103,30 @@ class TabLayout @JvmOverloads constructor(
     }
 
     private fun updateIndicator() {
-        val animators = arrayListOf<Animator>()
-        val translationAnimator = ValueAnimator.ofFloat(binding.indicator.translationX, selectedTab.x)
-        translationAnimator.addUpdateListener {
-            binding.indicator.translationX = it.animatedValue as Float
-        }
-        animators.add(translationAnimator)
-        if (!isFixedSizedMode) {
-            val widthAnimator = ValueAnimator.ofFloat(
-                lastSelectedTab.measuredWidth.toFloat(),
-                selectedTab.measuredWidth.toFloat()
-            )
-            widthAnimator.addUpdateListener {
-                binding.indicator.updateLayoutParams {
-                    width = (it.animatedValue as Float).toInt()
-                }
+        post {
+            val animators = arrayListOf<Animator>()
+            val translationAnimator = ValueAnimator.ofFloat(binding.indicator.translationX, selectedTab.x)
+            translationAnimator.addUpdateListener {
+                binding.indicator.translationX = it.animatedValue as Float
             }
-            animators.add(widthAnimator)
+            animators.add(translationAnimator)
+            if (!isFixedSizedMode) {
+                val widthAnimator = ValueAnimator.ofFloat(
+                    lastSelectedTab.measuredWidth.toFloat(),
+                    selectedTab.measuredWidth.toFloat()
+                )
+                widthAnimator.addUpdateListener {
+                    binding.indicator.updateLayoutParams {
+                        width = (it.animatedValue as Float).toInt()
+                    }
+                }
+                animators.add(widthAnimator)
+            }
+            val animatorSet = AnimatorSet()
+            animatorSet.duration = AnimationDuration.LONG.duration.toLong()
+            animatorSet.playTogether(*animators.toTypedArray())
+            animatorSet.start()
         }
-        val animatorSet = AnimatorSet()
-        animatorSet.duration = AnimationDuration.LONG.duration.toLong()
-        animatorSet.playTogether(*animators.toTypedArray())
-        animatorSet.start()
     }
 
     private fun updateScrollbar() {
