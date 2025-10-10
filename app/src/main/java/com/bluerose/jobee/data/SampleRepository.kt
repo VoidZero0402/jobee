@@ -60,8 +60,16 @@ class SampleRepository(private val sharedPrefs: SharedPreferences) {
         LOCATION
     }
 
-    fun getJobs(search: String = "", category: String = "", sortType: JobSortType = JobSortType.DEFAULT): List<Job> {
+    data class JobFilter(
+        var search: String = "",
+        var category: String = "",
+        var sortType: JobSortType = JobSortType.DEFAULT
+    )
+
+    fun getJobs(filter: JobFilter = JobFilter()): List<Job> {
         val savedJobIds = getSavedJobIds()
+        val (search, category, sortType) = filter
+
         return SampleDataSource.jobs
             .applyIf(search.isNotEmpty()) {
                 it.filter { job -> job.title.contains(search, ignoreCase = true) }
