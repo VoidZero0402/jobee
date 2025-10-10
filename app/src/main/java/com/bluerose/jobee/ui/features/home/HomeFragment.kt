@@ -57,6 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val jobs = Singletons.repository.getJobs(filter).toMutableList()
                     withContext(Dispatchers.Main) {
                         recentJobAdapter.setJobs(jobs)
+                        binding.notFoundJobs.root.visibility = if (jobs.isNotEmpty()) View.GONE else View.VISIBLE
                     }
                 }
             }

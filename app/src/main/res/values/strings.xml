@@ -18,6 +18,8 @@
     <string name="text_job_description">Job Description</string>
     <string name="text_welcome_chat_title">Welcome to Jobee Chat</string>
     <string name="text_welcome_chat_description">we’re here to help you find your next opportunity!</string>
+    <string name="text_not_found_jobs_title">No matching results</string>
+    <string name="text_not_found_jobs_description">We couldn’t find any jobs that match your current filters. Modify your search criteria to discover more positions.</string>
 
     <!-- ActionBar -->
     <string name="action_bar_notifications">Notifications</string>
