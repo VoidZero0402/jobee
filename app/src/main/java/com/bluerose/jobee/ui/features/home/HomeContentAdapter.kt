@@ -10,9 +10,12 @@ import com.bluerose.jobee.databinding.LayoutHomeContentBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.components.ChipGroup
+import com.bluerose.jobee.ui.utils.Debouncer
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
+import kotlinx.coroutines.CoroutineScope
 
 class HomeContentAdapter(
+    private val lifecycleScope: CoroutineScope,
     private val onHomeContentEventListener: OnHomeContentEventListener
 ) : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
@@ -36,6 +39,14 @@ class HomeContentAdapter(
                 )
             }
 
+            val debouncer = Debouncer(lifecycleScope)
+            binding.jobSearchField.setOnTextChangedListener {
+                debouncer {
+                    jobFilter.search = it
+                    onHomeContentEventListener.onJobFilterChanged(jobFilter)
+                }
+            }
+
             binding.recentChipGroup.apply {
                 setChips(
                     ChipGroup.ChipItem(resources.getString(R.string.text_all_category), true),
@@ -49,6 +60,14 @@ class HomeContentAdapter(
 
             binding.notificationAction.setOnClickListener {
                 onHomeContentEventListener.onNotificationActionClicked()
+            }
+
+            binding.recommendationAction.setOnClickListener {
+                onHomeContentEventListener.onRecommendationJobsActionClicked()
+            }
+
+            binding.recentAction.setOnClickListener {
+                onHomeContentEventListener.onRecentJobsActionClicked()
             }
         }
     }
@@ -67,5 +86,7 @@ class HomeContentAdapter(
 
         fun onJobFilterChanged(filter: SampleRepository.JobFilter)
         fun onNotificationActionClicked()
+        fun onRecommendationJobsActionClicked()
+        fun onRecentJobsActionClicked()
     }
 }
