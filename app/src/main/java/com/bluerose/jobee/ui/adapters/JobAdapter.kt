@@ -3,6 +3,7 @@ package com.bluerose.jobee.ui.adapters
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.view.View
+import android.widget.ImageButton
 import android.widget.TextView
 import com.bluerose.jobee.R
 import com.bluerose.jobee.abstractions.BaseRecyclerViewAdapter
@@ -26,7 +27,11 @@ class JobAdapter(
             item.salaryRange.second
         )
 
-        if (item.isSaved) setSavedState(binding)
+        if (item.isSaved) {
+            setSavedState(binding.saveAction)
+        } else {
+            setUnsavedState(binding.saveAction)
+        }
 
         val tagsFlowIndex = binding.root.indexOfChild(binding.tagsFlow)
         binding.root.removeViews(tagsFlowIndex + 1, binding.root.childCount - (tagsFlowIndex + 1))
@@ -48,17 +53,17 @@ class JobAdapter(
         binding.saveAction.setOnClickListener {
             item.isSaved = !item.isSaved
             if (item.isSaved) {
-                setSavedState(binding)
+                setSavedState(binding.saveAction)
                 onJobActionListener.onJobSaved(item)
             } else {
-                setUnsavedState(binding)
+                setUnsavedState(binding.saveAction)
                 onJobActionListener.onJobUnsaved(item)
             }
         }
     }
 
-    private fun setSavedState(binding: ItemCardJobBinding) {
-        binding.saveAction.apply {
+    private fun setSavedState(action: ImageButton) {
+        action.apply {
             setImageResource(R.drawable.ic_bookmark_bold)
             imageTintList = ColorStateList.valueOf(
                 context.getThemeColor(R.attr.colorPrimary)
@@ -67,8 +72,8 @@ class JobAdapter(
         }
     }
 
-    private fun setUnsavedState(binding: ItemCardJobBinding) {
-        binding.saveAction.apply {
+    private fun setUnsavedState(action: ImageButton) {
+        action.apply {
             setImageResource(R.drawable.ic_bookmark)
             imageTintList = ColorStateList.valueOf(
                 context.getThemeColor(R.attr.colorPrimary)

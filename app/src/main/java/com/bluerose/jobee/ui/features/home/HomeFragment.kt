@@ -3,17 +3,17 @@ package com.bluerose.jobee.ui.features.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bluerose.jobee.R
 import com.bluerose.jobee.abstractions.BaseFragment
 import com.bluerose.jobee.abstractions.LayoutMode
 import com.bluerose.jobee.abstractions.LayoutState
+import com.bluerose.jobee.data.SampleRepository
 import com.bluerose.jobee.data.models.Job
 import com.bluerose.jobee.databinding.FragmentHomeBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
-import com.bluerose.jobee.ui.components.ChipGroup
 import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
 import com.bluerose.jobee.ui.features.jobs.JobDetailsFragment
@@ -33,8 +33,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.usernameText.text = Singletons.repository.getUser().username
-
         val onJobActionListener = object : JobAdapter.OnJobActionListener {
             override fun onJobClick(job: Job) {
                 val bundle = Bundle()
@@ -51,33 +49,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         }
 
-        binding.recommendationRecycler.apply {
-            adapter = JobAdapter(
-                Singletons.repository.getRecommendedJobs().toMutableList(),
-                onJobActionListener
-            )
-            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-            addItemDecoration(
-                SpaceItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.content_gap),
-                    RecyclerView.HORIZONTAL
-                )
-            )
-        }
+        val onHomeContentEventListener = object : HomeContentAdapter.OnHomeContentEventListener {
+            override val onJobActionListener = onJobActionListener
 
-        binding.recentChipGroup.apply {
-            setChips(
-                ChipGroup.ChipItem(resources.getString(R.string.text_all_category), true),
-                *Singletons.repository.getCategories().map { ChipGroup.ChipItem(it) }.toTypedArray()
-            )
-            setOnSelectionChangedListener {
+            override fun onJobFilterChanged(filter: SampleRepository.JobFilter) {
                 lifecycleScope.launch(Dispatchers.Default) {
-                    val jobs = Singletons.repository.getJobs(category = it[0].text.toString()).toMutableList()
+                    val jobs = Singletons.repository.getJobs(filter).toMutableList()
                     withContext(Dispatchers.Main) {
                         recentJobAdapter.setJobs(jobs)
                     }
                 }
             }
+
+            override fun onNotificationActionClicked() {
+                navigateTo(NotificationsFragment())
+            }
+
+            override fun onRecommendationJobsActionClicked() {}
+
+            override fun onRecentJobsActionClicked() {}
         }
 
         recentJobAdapter = JobAdapter(
@@ -85,14 +75,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             onJobActionListener
         )
 
-        binding.recentRecycler.apply {
-            adapter = recentJobAdapter
+        binding.rootRecycler.apply {
+            adapter = ConcatAdapter(HomeContentAdapter(lifecycleScope, onHomeContentEventListener), recentJobAdapter)
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.content_gap)))
-        }
-
-        binding.notificationAction.setOnClickListener {
-            navigateTo(NotificationsFragment())
         }
     }
 }
