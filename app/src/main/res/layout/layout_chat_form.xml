@@ -16,7 +16,7 @@
 
         <ImageButton
             android:id="@+id/emoji_action"
-            style="@style/Widget.Button.IconButton"
+            style="@style/Widget.IconButton"
             android:layout_gravity="bottom"
             android:contentDescription="@string/cd_choose_emoji"
             android:src="@drawable/ic_smile_circle"
@@ -43,7 +43,7 @@
 
         <ImageButton
             android:id="@+id/camera_action"
-            style="@style/Widget.Button.IconButton"
+            style="@style/Widget.IconButton"
             android:layout_gravity="bottom"
             android:contentDescription="@string/cd_open_camera"
             android:src="@drawable/ic_camera_bold"

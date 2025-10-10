@@ -4,7 +4,7 @@
 
     <ImageButton
         android:id="@+id/navigation_action"
-        style="@style/Widget.Button.IconButton"
+        style="@style/Widget.IconButton"
         android:contentDescription="@string/cd_back_navigation"
         android:src="@drawable/ic_arrow_left"
         app:layout_constraintStart_toStartOf="parent"
