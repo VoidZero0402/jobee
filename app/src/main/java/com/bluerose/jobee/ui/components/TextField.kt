@@ -38,6 +38,7 @@ class TextField @JvmOverloads constructor(
     private var animationDuration = 0L
 
     private var onFocusChanged: ((hasFocus: Boolean) -> Unit)? = null
+    private var onTextChanged: ((text: String) -> Unit)? = null
 
     private val colorPrimary = context.getThemeColor(R.attr.colorPrimary)
     private val colorPrimaryContainer = context.getThemeColor(R.attr.colorPrimaryContainer)
@@ -141,6 +142,7 @@ class TextField @JvmOverloads constructor(
                 it.toString().isEmpty() && currentState == TextFieldState.FILLED -> applyState(TextFieldState.EMPTY)
                 it.toString().isNotEmpty() && currentState == TextFieldState.EMPTY -> applyState(TextFieldState.FILLED)
             }
+            onTextChanged?.invoke(it.toString())
         }
     }
 
@@ -261,6 +263,10 @@ class TextField @JvmOverloads constructor(
 
     fun setOnFocusChangedListener(l: (hasFocus: Boolean) -> Unit) {
         onFocusChanged = l
+    }
+
+    fun setOnTextChangedListener(l: (text: String) -> Unit) {
+        onTextChanged = l
     }
 
     fun getText(): String = binding.editText.text.toString()
