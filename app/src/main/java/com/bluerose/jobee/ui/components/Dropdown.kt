@@ -32,11 +32,17 @@ class Dropdown @JvmOverloads constructor(
                 })
             }
         }
+
         children.forEach {
             if (it is DropdownItem) {
                 it.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             }
         }
+        
+        measure(
+            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+        )
     }
 
     fun setOptions(vararg labels: String) {
