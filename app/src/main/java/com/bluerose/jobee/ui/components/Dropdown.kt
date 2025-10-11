@@ -15,23 +15,18 @@ class Dropdown @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.dropdownContainerStyle
 ) : LinearLayout(context, attrs, defStyleAttr) {
-    private val options = arrayListOf<Option>()
-    private var onOptionClicked: ((option: Option) -> Unit)? = null
-
-    data class Option(
-        val id: String,
-        val label: String
-    )
+    private val labels = arrayListOf<String>()
+    private var onOptionClicked: ((position: Int) -> Unit)? = null
 
     private fun setupOptions() {
-        options.forEachIndexed { index, option ->
+        labels.forEachIndexed { index, label ->
             addView(DropdownItem(context).apply {
-                text = option.label
+                text = label
                 setOnClickListener {
-                    onOptionClicked?.invoke(option)
+                    onOptionClicked?.invoke(index)
                 }
             })
-            if (index != options.count() - 1) {
+            if (index != labels.count() - 1) {
                 addView(Space(context).apply {
                     layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, 4.dp)
                 })
@@ -44,13 +39,13 @@ class Dropdown @JvmOverloads constructor(
         }
     }
 
-    fun setOptions(options: List<Option>) {
-        this.options.addAll(options)
+    fun setOptions(vararg labels: String) {
+        this.labels.addAll(labels)
         removeAllViews()
         setupOptions()
     }
 
-    fun setOnOptionClickedListener(l: (option: Option) -> Unit) {
+    fun setOnOptionClickedListener(l: (position: Int) -> Unit) {
         onOptionClicked = l
     }
 
