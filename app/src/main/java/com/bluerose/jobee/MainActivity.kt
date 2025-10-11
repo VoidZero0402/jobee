@@ -6,9 +6,9 @@ import com.bluerose.jobee.databinding.ActivityMainBinding
 import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.components.ActionBar
 import com.bluerose.jobee.ui.constants.NavItemPositions
-import com.bluerose.jobee.ui.features.applications.ApplicationsFragment
 import com.bluerose.jobee.ui.features.auth.SignInFragment
 import com.bluerose.jobee.ui.features.home.HomeFragment
+import com.bluerose.jobee.ui.features.jobs.DiscoverJobsFragment
 import com.bluerose.jobee.ui.features.jobs.SavedJobsFragment
 import com.bluerose.jobee.ui.features.messages.MessagesFragment
 import com.bluerose.jobee.ui.features.profile.ProfileFragment
@@ -22,7 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             val fragment = when (position) {
                 NavItemPositions.HOME -> HomeFragment()
                 NavItemPositions.SAVED_JOBS -> SavedJobsFragment()
-                NavItemPositions.APPLICATIONS -> ApplicationsFragment()
+                NavItemPositions.DISCOVER_JOBS -> DiscoverJobsFragment()
                 NavItemPositions.MESSAGES -> MessagesFragment()
                 NavItemPositions.PROFILE -> ProfileFragment()
                 else -> HomeFragment()

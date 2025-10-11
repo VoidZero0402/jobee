@@ -43,9 +43,9 @@
 
         <com.bluerose.jobee.ui.components.NavItem
             style="@style/Widget.NavItem.Container"
-            app:activeIcon="@drawable/ic_notes_bold"
-            app:icon="@drawable/ic_notes"
-            app:text="Applications" />
+            app:activeIcon="@drawable/ic_compass_bold"
+            app:icon="@drawable/ic_compass"
+            app:text="Discover" />
 
         <com.bluerose.jobee.ui.components.NavItem
             style="@style/Widget.NavItem.Container"
