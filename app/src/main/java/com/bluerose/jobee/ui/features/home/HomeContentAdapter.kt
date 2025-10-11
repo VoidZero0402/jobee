@@ -45,7 +45,7 @@ class HomeContentAdapter(
             binding.jobSearchField.setOnTextChangedListener {
                 debouncer {
                     jobFilter.search = it
-                    onHomeContentEventListener.onJobFilterChanged(jobFilter)
+                    notifyJobFilterChanged()
                 }
             }
 
@@ -56,7 +56,7 @@ class HomeContentAdapter(
                 )
                 setOnSelectionChangedListener {
                     jobFilter.category = if (it.isNotEmpty()) it[0].text.toString() else ""
-                    onHomeContentEventListener.onJobFilterChanged(jobFilter)
+                    notifyJobFilterChanged()
                 }
             }
 
@@ -71,6 +71,10 @@ class HomeContentAdapter(
             binding.recentAction.setOnClickListener {
                 onHomeContentEventListener.onRecentJobsActionClicked()
             }
+        }
+
+        private fun notifyJobFilterChanged() {
+            onHomeContentEventListener.onJobFilterChanged(jobFilter)
         }
     }
 

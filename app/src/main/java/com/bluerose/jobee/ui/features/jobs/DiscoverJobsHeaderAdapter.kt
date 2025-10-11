@@ -17,7 +17,8 @@ import kotlinx.coroutines.CoroutineScope
 
 class DiscoverJobsHeaderAdapter(
     private val lifecycleScope: CoroutineScope,
-    private val uiModel: DiscoverJobsHeaderUiModel
+    private val uiModel: DiscoverJobsHeaderUiModel,
+    private val onDiscoverJobsHeaderEventListener: OnDiscoverJobsHeaderEventListener
 ) : RecyclerView.Adapter<DiscoverJobsHeaderAdapter.HeaderViewHolder>() {
 
     private lateinit var binding: LayoutDiscoverJobsHeaderBinding
@@ -38,6 +39,7 @@ class DiscoverJobsHeaderAdapter(
             binding.jobSearchField.setOnTextChangedListener {
                 debouncer {
                     jobFilter.search = it
+                    notifyJobFilterChanged()
                 }
             }
 
@@ -50,8 +52,17 @@ class DiscoverJobsHeaderAdapter(
                         true
                     )
 
-                    sortJobsDropdown.setOnOptionClickedListener {
+                    sortJobsDropdown.setOnOptionClickedListener { position ->
+                        jobFilter.sortType = when (position) {
+                            0 -> SampleRepository.JobSortType.DEFAULT
+                            1 -> SampleRepository.JobSortType.TITLE
+                            2 -> SampleRepository.JobSortType.DATE
+                            3 -> SampleRepository.JobSortType.SALARY
+                            4 -> SampleRepository.JobSortType.LOCATION
+                            else -> SampleRepository.JobSortType.DEFAULT
+                        }
                         popup.dismiss()
+                        notifyJobFilterChanged()
                     }
 
                     popup.apply {
@@ -70,10 +81,15 @@ class DiscoverJobsHeaderAdapter(
                 )
                 setOnSelectionChangedListener {
                     jobFilter.category = if (it.isNotEmpty()) it[0].text.toString() else ""
+                    notifyJobFilterChanged()
                 }
             }
 
             setUiModel(uiModel)
+        }
+
+        private fun notifyJobFilterChanged() {
+            onDiscoverJobsHeaderEventListener.onJobFilterChanged(jobFilter)
         }
     }
 
@@ -91,4 +107,8 @@ class DiscoverJobsHeaderAdapter(
     override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {}
 
     override fun getItemCount(): Int = 1
+
+    interface OnDiscoverJobsHeaderEventListener {
+        fun onJobFilterChanged(filter: SampleRepository.JobFilter)
+    }
 }
