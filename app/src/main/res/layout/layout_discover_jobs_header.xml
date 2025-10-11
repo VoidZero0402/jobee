@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="-16dp"
+    android:layout_marginEnd="-16dp"
+    android:clipToPadding="false"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <com.bluerose.jobee.ui.components.TextField
+        android:id="@+id/job_search_field"
+        style="@style/Widget.SearchField.Base"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:hint="@string/hint_search_for_job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/jobs_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/section_gap"
+        android:text="@string/dummy_jobs_count"
+        android:textAppearance="@style/TextAppearance.Body.XLarge.Semibold"
+        android:textColor="?attr/colorNeutralHighest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/job_search_field" />
+
+    <ImageButton
+        android:id="@+id/sort_action"
+        style="@style/Widget.IconButton.Variant"
+        android:contentDescription="@string/cd_sort_jobs"
+        android:src="@drawable/ic_sort"
+        app:layout_constraintBottom_toBottomOf="@id/jobs_count_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/jobs_count_text" />
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-16dp"
+        android:layout_marginTop="@dimen/section_gap"
+        android:layout_marginEnd="-16dp"
+        android:clipToPadding="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jobs_count_text">
+
+        <com.bluerose.jobee.ui.components.ChipGroup
+            android:id="@+id/category_chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true" />
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

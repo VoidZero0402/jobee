@@ -121,7 +121,6 @@
         app:layout_constraintTop_toTopOf="@id/recent_text" />
 
     <HorizontalScrollView
-        android:id="@+id/recent_chip_group_wrapper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-16dp"
