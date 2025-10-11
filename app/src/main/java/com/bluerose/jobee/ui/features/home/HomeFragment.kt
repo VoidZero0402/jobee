@@ -16,6 +16,7 @@ import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.adapters.JobAdapter
 import com.bluerose.jobee.ui.constants.BundleKeys
 import com.bluerose.jobee.ui.constants.NavItemPositions
+import com.bluerose.jobee.ui.features.jobs.DiscoverJobsFragment
 import com.bluerose.jobee.ui.features.jobs.JobDetailsFragment
 import com.bluerose.jobee.ui.features.notifications.NotificationsFragment
 import com.bluerose.jobee.ui.utils.SpaceItemDecoration
@@ -62,13 +63,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 }
             }
 
-            override fun onNotificationActionClicked() {
-                navigateTo(NotificationsFragment())
-            }
-
-            override fun onRecommendationJobsActionClicked() {}
-
-            override fun onRecentJobsActionClicked() {}
+            override fun onNotificationActionClicked() = navigateTo(NotificationsFragment())
+            override fun onRecommendationJobsActionClicked() = navigateTo(DiscoverJobsFragment())
+            override fun onRecentJobsActionClicked() = navigateTo(DiscoverJobsFragment())
         }
 
         recentJobAdapter = JobAdapter(
