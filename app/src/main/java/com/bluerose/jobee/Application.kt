@@ -7,5 +7,6 @@ class JobeeApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Singletons.init(this)
+        Singletons.themeManager.applyTheme()
     }
 }

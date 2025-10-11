@@ -9,15 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.viewbinding.ViewBinding
 import com.bluerose.jobee.R
-import com.bluerose.jobee.di.Singletons
 import com.bluerose.jobee.ui.components.ActionBar
 import com.bluerose.jobee.ui.utils.getThemeColor
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     protected lateinit var binding: VB
-
-    protected val themeManager = Singletons.themeManager
 
     protected val isSystemDarkMode: Boolean
         get() = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
@@ -28,7 +25,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         enableEdgeToEdge(navigationBarStyle = SystemBarStyle.dark(getThemeColor(R.attr.colorSurface)))
         setContentView(binding.root)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightNavigationBars = !isSystemDarkMode
-        themeManager.applyTheme()
         onViewCreated()
     }
 
