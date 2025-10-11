@@ -19,7 +19,9 @@ class HomeContentAdapter(
     private val onHomeContentEventListener: OnHomeContentEventListener
 ) : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
-    inner class HomeContentViewHolder(binding: LayoutHomeContentBinding) : RecyclerView.ViewHolder(binding.root) {
+    private lateinit var binding: LayoutHomeContentBinding
+
+    inner class HomeContentViewHolder : RecyclerView.ViewHolder(binding.root) {
         private val jobFilter = SampleRepository.JobFilter()
 
         init {
@@ -73,8 +75,8 @@ class HomeContentAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeContentViewHolder {
-        val binding = LayoutHomeContentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeContentViewHolder(binding)
+        binding = LayoutHomeContentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeContentViewHolder()
     }
 
     override fun onBindViewHolder(holder: HomeContentViewHolder, position: Int) {}
